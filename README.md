@@ -26,7 +26,7 @@ To use this app or override the default CSS you need import it in your dependenc
 
 This block may be used inside the `store.product` block.
 
-To use it, you must declare its use in your `store.product` children array or inside a `flex-layout` inside `store.produc`.
+To use it, you must declare its use in your `store.product` children array or inside a `flex-layout` inside `store.product`.
 
 An example of usage in a `blocks.json`:
 
