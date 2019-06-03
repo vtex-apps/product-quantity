@@ -1,4 +1,6 @@
 {
+  "store/product-quantity.quantity": "Quantity",
+  "store/product-quantity.quantity-available": "{availableQuantity, plural, one {# available} other {# available}}",
   "admin/editor.product-quantity.title": "Product Quantity component",
   "admin/editor.product-quantity.description": "A component that allows user to select the amount of items to add to cart",
   "admin/editor.product-quantity.warningQuantityThreshold.title": "Threshold of available quantity warning",

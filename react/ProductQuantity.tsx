@@ -32,7 +32,7 @@ const ProductQuantity: StorefrontFunctionComponent<Props> = ({
   return (
     <div className={`${styles.quantitySelectorContainer} flex flex-column mb4`}>
       <div className="mb3 c-muted-2 t-body">
-        <FormattedMessage id="store/product-details.quantity" />
+        <FormattedMessage id="store/product-quantity.quantity" />
       </div>
       <NumericStepper
         size="small"
@@ -47,7 +47,7 @@ const ProductQuantity: StorefrontFunctionComponent<Props> = ({
             styles.availableQuantityContainer
           } mv4 c-muted-2 t-small`}>
           <FormattedMessage
-            id="store/product-details.quantity-available"
+            id="store/product-quantity.quantity-available"
             values={{ availableQuantity }}
           />
         </div>

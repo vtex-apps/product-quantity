@@ -1,4 +1,6 @@
 {
+  "store/product-quantity.quantity": "Quantidade",
+  "store/product-quantity.quantity-available": "{availableQuantity, plural, one {# disponível} other {# disponíveis}}",
   "admin/editor.product-quantity.title": "Seletor de Quantidade do Produto",
   "admin/editor.product-quantity.description": "Um componente que permite o usuário a selecionar a quantidade de items para adicionar ao carrinho.",
   "admin/editor.product-quantity.warningQuantityThreshold.title": "Limite de aviso de quantidade disponível",
