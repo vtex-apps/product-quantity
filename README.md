@@ -24,16 +24,29 @@ To use this app or override the default CSS you need import it in your dependenc
   }
 ```
 
-This block may be used inside the `product-details` block.
+This block may be used inside the `store.product` block.
 
-To use it, you must declare its use in your `product-details` block array. An example of usage in a `blocks.json`:
+To use it, you must declare its use in your `store.product` children array or inside a `flex-layout` inside `store.produc`.
+
+An example of usage in a `blocks.json`:
 
 ```js
-  "product-details#default": {
-    "blocks": [
-      // ...other blocks
-      "product-quantity"
-    ],
+  "flex-layout.col#product-price": {
+    "props": {
+      "preventVerticalStretch": true,
+      "rowGap": 0
+    },
+    "children": [
+      "product-name",
+      "product-price#product-details",
+      "product-separator",
+      "product-quantity",
+      "sku-selector",
+      "flex-layout.row#buy-button",
+      "availability-subscriber",
+      "shipping-simulator",
+      "share"
+    ]
   },
   "product-quantity": {
     "props": {
