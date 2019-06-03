@@ -1,0 +1,20 @@
+{
+  "vendor": "vtex",
+  "name": "product-quantity",
+  "version": "1.0.0",
+  "title": "Product Quantity",
+  "description": "Product quantity",
+  "builders": {
+    "messages": "1.x",
+    "store": "0.x",
+    "react": "3.x"
+  },
+  "scripts": {
+    "postreleasy": "vtex publish --verbose"
+  },
+  "dependencies": {
+    "vtex.styleguide": "9.x",
+    "vtex.product-context": "0.x"
+  },
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
+}

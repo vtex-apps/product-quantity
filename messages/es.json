@@ -1,0 +1,6 @@
+{
+  "admin/editor.product-quantity.title": "Selector de Cantidad de Producto",
+  "admin/editor.product-quantity.description": "Un componente que permite al usuario a seleccionar la cantidad de elementos para añadir al carrito.",
+  "admin/editor.product-quantity.warningQuantityThreshold.title": "Cantidad de umbral disponible",
+  "admin/editor.product-quantity.warningQuantityThreshold.description": "Sólo muestra la cantidad de elementos en stock si la cantidad de elementos disponibles es menor que el valor pasado en esa propiedad."
+}
