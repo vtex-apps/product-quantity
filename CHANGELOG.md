@@ -7,7 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## Changed
-- Removed `injectIntl` from example
+## [1.0.0] - 2019-06-03
 
-- **Component** Create the VTEX Store Component _IO Base App_
+### Added
+
+- Initial release.
