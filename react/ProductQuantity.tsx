@@ -5,8 +5,6 @@ import { ProductContext } from 'vtex.product-context'
 import { pathOr } from 'ramda'
 import styles from './styles.css'
 
-const noop = () => {}
-
 const ProductQuantity: StorefrontFunctionComponent<Props> = ({
   warningQuantityThreshold = 0,
 }) => {
