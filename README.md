@@ -28,44 +28,12 @@ This block may be used inside the `product-details` block.
 
 To use it, you must declare its use in your `product-details` block array. An example of usage in a `blocks.json`:
 
-```json
-"product-details#default": {
+```js
+  "product-details#default": {
     "blocks": [
-      "breadcrumb",
-      "product-name",
-      "product-images",
-      "product-price",
-      "product-description",
-      "product-specifications",
-      "buy-button",
-      "sku-selector",
-      "shipping-simulator",
-      "availability-subscriber",
-      "share",
+      // ...other blocks
       "product-quantity"
     ],
-    "props": {
-      "displayVertically": true,
-      "share": {
-        "social": {
-          "Facebook": true,
-          "WhatsApp": true,
-          "Twitter": false
-        }
-      },
-      "price": {
-        "labelSellingPrice": null,
-        "showListPrice": true,
-        "showLabels": true,
-        "showInstallments": true,
-        "showSavings": true
-      },
-      "name": {
-        "showBrandName": false,
-        "showSku": false,
-        "showProductReference": false
-      }
-    }
   },
   "product-quantity": {
     "props": {
