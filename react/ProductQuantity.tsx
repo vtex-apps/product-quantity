@@ -2,43 +2,30 @@ import React, { useCallback } from 'react'
 import { NumericStepper } from 'vtex.styleguide'
 import { FormattedMessage } from 'react-intl'
 import { ProductContext } from 'vtex.product-context'
-import { pathOr, isEmpty } from 'ramda'
+import { pathOr } from 'ramda'
 import styles from './styles.css'
 
 const noop = () => {}
 
 const ProductQuantity: StorefrontFunctionComponent<Props> = ({
   warningQuantityThreshold = 0,
-  ...props
 }) => {
-  const valuesFromContext = React.useContext(ProductContext)
-
-  const isContextEmpty = !valuesFromContext || isEmpty(valuesFromContext)
-
-  const onChangeCallback = isContextEmpty
-    ? props.onChange || noop
-    : valuesFromContext.onChangeQuantity
+  const { selectedQuantity, selectedItem, onChangeQuantity } = React.useContext(
+    ProductContext
+  )
 
   const onChange = useCallback(
     e => {
-      onChangeCallback(e.value)
+      onChangeQuantity(e.value)
     },
-    [onChangeCallback]
+    [onChangeQuantity]
   )
 
-  const availableQuantity = isContextEmpty
-    ? props.availableQuantity != null
-      ? props.availableQuantity
-      : 0
-    : pathOr(
-        0,
-        ['selectedItem', 'sellers', 0, 'commertialOffer', 'AvailableQuantity'],
-        valuesFromContext
-      )
-
-  const selectedQuantity = isContextEmpty
-    ? props.selectedQuantity
-    : valuesFromContext.selectedQuantity
+  const availableQuantity = pathOr(
+    0,
+    ['sellers', 0, 'commertialOffer', 'AvailableQuantity'],
+    selectedItem
+  )
 
   const showAvailable = availableQuantity <= warningQuantityThreshold
 
@@ -72,15 +59,11 @@ const ProductQuantity: StorefrontFunctionComponent<Props> = ({
 }
 
 interface Props {
-  selectedQuantity: number
-  availableQuantity: number
-  onChange: (e: any) => void
   warningQuantityThreshold: number
 }
 
 ProductQuantity.defaultProps = {
   warningQuantityThreshold: 0,
-  onChange: () => {},
 }
 
 ProductQuantity.schema = {
