@@ -13,6 +13,13 @@ declare module 'vtex.product-context/useProduct' {
         }
       }[]
     }
+  }
+}
+
+declare module 'vtex.product-context/ProductDispatchContext' {
+  export const useProductDispatch: () => ProductDispatchContext
+
+  interface ProductDispatchContext {
     dispatch (payload: { type: string, args?: any }): void
   }
 }
