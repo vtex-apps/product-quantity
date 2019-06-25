@@ -1,14 +1,14 @@
-import React, { useCallback, useContext } from 'react'
+import React, { useCallback } from 'react'
 import { NumericStepper } from 'vtex.styleguide'
 import { FormattedMessage } from 'react-intl'
-import { ProductContext } from 'vtex.product-context'
+import useProduct from 'vtex.product-context/useProduct'
 import { pathOr } from 'ramda'
 import styles from './styles.css'
 
 const ProductQuantity: StorefrontFunctionComponent<Props> = ({
   warningQuantityThreshold = 0,
 }) => {
-  const { state, selectedItem, dispatch } = useContext(ProductContext)
+  const { state, selectedItem, dispatch } = useProduct()
 
   const onChange = useCallback(
     e => {
