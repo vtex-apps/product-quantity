@@ -4,8 +4,9 @@ declare module 'vtex.product-context' {
   export const ProductContext: Context<ProductContext>
 
   interface ProductContext {
-    onChangeQuantity: (quantity: number) => void
-    selectedQuantity: number
+    state: {
+      selectedQuantity: number
+    }
     selectedItem: {
       sellers: {
         commertialOffer: {
@@ -13,5 +14,6 @@ declare module 'vtex.product-context' {
         }
       }[]
     }
+    dispatch (payload: { type: string, args?: any }): void
   }
 }

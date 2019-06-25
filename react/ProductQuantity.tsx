@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useContext } from 'react'
 import { NumericStepper } from 'vtex.styleguide'
 import { FormattedMessage } from 'react-intl'
 import { ProductContext } from 'vtex.product-context'
@@ -8,15 +8,13 @@ import styles from './styles.css'
 const ProductQuantity: StorefrontFunctionComponent<Props> = ({
   warningQuantityThreshold = 0,
 }) => {
-  const { selectedQuantity, selectedItem, onChangeQuantity } = React.useContext(
-    ProductContext
-  )
+  const { state, selectedItem, dispatch } = useContext(ProductContext)
 
   const onChange = useCallback(
     e => {
-      onChangeQuantity(e.value)
+      dispatch({ type: 'SET_QUANTITY', args: { quantity: e.value }})
     },
-    [onChangeQuantity]
+    [dispatch]
   )
 
   const availableQuantity = pathOr(
@@ -36,7 +34,7 @@ const ProductQuantity: StorefrontFunctionComponent<Props> = ({
       </div>
       <NumericStepper
         size="small"
-        value={selectedQuantity}
+        value={state.selectedQuantity}
         minValue={1}
         maxValue={availableQuantity ? availableQuantity : undefined}
         onChange={onChange}
