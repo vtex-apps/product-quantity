@@ -3,9 +3,7 @@ declare module 'vtex.product-context/useProduct' {
   export default useProduct
 
   interface ProductContext {
-    state: {
-      selectedQuantity: number
-    }
+    selectedQuantity: number
     selectedItem: {
       sellers: {
         commertialOffer: {

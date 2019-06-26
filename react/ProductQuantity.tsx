@@ -9,7 +9,7 @@ import styles from './styles.css'
 const ProductQuantity: StorefrontFunctionComponent<Props> = ({
   warningQuantityThreshold = 0,
 }) => {
-  const { state, selectedItem } = useProduct()
+  const { selectedQuantity, selectedItem } = useProduct()
   const { dispatch } = useProductDispatch()
 
   const onChange = useCallback(
@@ -36,7 +36,7 @@ const ProductQuantity: StorefrontFunctionComponent<Props> = ({
       </div>
       <NumericStepper
         size="small"
-        value={state.selectedQuantity}
+        value={selectedQuantity}
         minValue={1}
         maxValue={availableQuantity ? availableQuantity : undefined}
         onChange={onChange}
