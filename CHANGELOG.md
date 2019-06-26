@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-- Use selectedQuantity from state of PDP.
+- Use selectedQuantity from state of Product Page.
 
 ## [1.0.1] - 2019-06-03
 
