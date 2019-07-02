@@ -10,7 +10,7 @@ const ProductQuantity: StorefrontFunctionComponent<Props> = ({
   warningQuantityThreshold = 0,
 }) => {
   const { selectedQuantity, selectedItem } = useProduct()
-  const { dispatch } = useProductDispatch()
+  const dispatch = useProductDispatch()
 
   const onChange = useCallback(
     e => {
