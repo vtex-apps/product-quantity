@@ -1,5 +1,8 @@
 {
   "product-quantity": {
     "component": "ProductQuantity"
+  },
+  "product-summary-quantity": {
+    "component": "ProductSummaryQuantity"
   }
 }

@@ -24,9 +24,9 @@ To use this app or override the default CSS you need import it in your dependenc
   }
 ```
 
-This block may be used inside the `store.product` block.
+The `product-quantity` block may be used inside the `store.product` block, while the `product-summary-context` block may be used inside the `product-summary.shelf` block.
 
-To use it, you must declare its use in your `store.product` children array or inside a `flex-layout` inside `store.product`.
+To use them, you must declare its use in your `store.product`/`product-summary.shelf` children array or inside a `flex-layout` inside `store.product`.
 
 An example of usage in a `blocks.json`:
 
@@ -93,5 +93,6 @@ Below, we describe the namespaces that are defined in the Product Quantity Selec
 
 | Token name                   | Component                                                                                                    | Description                                           |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------- |
-| `quantitySelectorContainer`  | [index](https://github.com/vtex-apps/product-quantity/blob/master/react/components/ProductQuantity/index.js) | The main container of `Product Quantity Selector`     |
-| `availableQuantityContainer` | [index](https://github.com/vtex-apps/product-quantity/blob/master/react/components/ProductQuantity/index.js) | The container that wraps the available quantity view. |
+| `quantitySelectorContainer`  | [BaseProductQuantity](https://github.com/vtex-apps/product-quantity/tree/master/react/components/BaseProductQuantity.tsx) | The main container of `Product Quantity Selector`     |
+| `availableQuantityContainer` | [BaseProductQuantity](https://github.com/vtex-apps/product-quantity/tree/master/react/components/BaseProductQuantity.tsx) | The container that wraps the available quantity view. |
+| `summaryContainer` | [ProductSummaryQuantity](https://github.com/vtex-apps/product-quantity/tree/master/react/ProductSummaryQuantity.tsx) | The container that wraps the `ProductSummaryQuantity`. |
