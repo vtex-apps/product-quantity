@@ -1,8 +1,14 @@
 {
   "product-quantity": {
-    "component": "ProductQuantity"
+    "component": "ProductQuantity",
+    "content": {
+      "$ref": "#/definitions/ProductQuantity"
+    }
   },
   "product-summary-quantity": {
-    "component": "ProductSummaryQuantity"
+    "component": "ProductSummaryQuantity",
+    "content": {
+      "$ref": "#/definitions/ProductSummaryQuantity"
+    }
   }
 }

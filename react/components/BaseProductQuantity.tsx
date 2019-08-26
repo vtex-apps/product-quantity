@@ -1,29 +1,15 @@
 import React, { useCallback } from 'react'
 import { NumericStepper } from 'vtex.styleguide'
 import { FormattedMessage } from 'react-intl'
-import useProduct from 'vtex.product-context/useProduct'
-import { useProductDispatch } from 'vtex.product-context/ProductDispatchContext'
 import { pathOr } from 'ramda'
 import styles from '../styles.css'
 
-const useItemInfoProps = (selectedQuantity: any, selectedItem: any, dispatch: any) => {
-  const { selectedQuantity: qty, selectedItem: item } = useProduct()
-  const productDispatch = useProductDispatch()
-  if (selectedQuantity && selectedItem && dispatch) {
-    return {selectedQuantity, selectedItem, dispatch}
-  }
-  return {selectedQuantity: qty, selectedItem: item, dispatch: productDispatch}
-
-}
-
 const BaseProductQuantity: StorefrontFunctionComponent<Props> = ({
   warningQuantityThreshold = 0,
-  selectedQuantity: quantityProp,
-  selectedItem: itemProp,
-  dispatch: dispatchProp
+  selectedQuantity,
+  selectedItem,
+  dispatch
 }) => {
-  const { selectedQuantity, selectedItem, dispatch } = useItemInfoProps(quantityProp, itemProp, dispatchProp)
-
   const onChange = useCallback(
     e => {
       dispatch({ type: 'SET_QUANTITY', args: { quantity: e.value }})
@@ -77,21 +63,6 @@ interface Props {
 
 BaseProductQuantity.defaultProps = {
   warningQuantityThreshold: 0,
-}
-
-BaseProductQuantity.schema = {
-  title: 'admin/editor.product-quantity.title',
-  description: 'admin/editor.product-quantity.description',
-  type: 'object',
-  properties: {
-    warningQuantityThreshold: {
-      title: 'admin/editor.product-quantity.warningQuantityThreshold.title',
-      description:
-        'admin/editor.product-quantity.warningQuantityThreshold.title',
-      type: 'number',
-      default: 0,
-    },
-  },
 }
 
 export default BaseProductQuantity

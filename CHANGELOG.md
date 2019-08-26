@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Changed
 - how `ProductQuantity` worked. Now it is possible for it to receive `selectedItem` and `selectedQuantity` from external sources.
+
 ### Added
 - `BaseProductQuantity` that contains the core logic of `ProductQuantity`
 - `ProductSummaryQuantity`

@@ -29,9 +29,11 @@ const ProductSummaryQuantity: StorefrontFunctionComponent<Props>  = ({
 
 interface Props {
   warningQuantityThreshold: number
-  selectedQuantity: number
-  selectedItem: any
-  dispatch: any
+}
+
+ProductSummaryQuantity.schema = {
+  title: 'admin/editor.product-quantity.title',
+  description: 'admin/editor.product-quantity.description',
 }
 
 export default ProductSummaryQuantity

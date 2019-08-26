@@ -24,9 +24,9 @@ To use this app or override the default CSS you need import it in your dependenc
   }
 ```
 
-The `product-quantity` block may be used inside the `store.product` block, while the `product-summary-context` block may be used inside the `product-summary.shelf` block.
+The `product-quantity` block may be used inside the `store.product` block, while the `product-summary-quantity` block may be used inside the `product-summary.shelf` block.
 
-To use them, you must declare its use in your `store.product`/`product-summary.shelf` children array or inside a `flex-layout` inside `store.product`.
+To use them, you must declare its use in your `store.product` or `product-summary.shelf` children array or inside a `flex-layout` inside `store.product`.
 
 An example of usage in a `blocks.json`:
 
