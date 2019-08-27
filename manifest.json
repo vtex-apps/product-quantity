@@ -13,8 +13,10 @@
     "postreleasy": "vtex publish --verbose"
   },
   "dependencies": {
+    "vtex.native-types": "0.x",
     "vtex.styleguide": "9.x",
-    "vtex.product-context": "0.x"
+    "vtex.product-context": "0.x",
+    "vtex.product-summary-context": "0.x"
   },
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }

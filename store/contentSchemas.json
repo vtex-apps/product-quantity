@@ -1,0 +1,28 @@
+{
+  "definitions": {
+    "ProductQuantity" : {
+      "type": "object",
+      "properties": {
+        "warningQuantityThreshold": {
+          "title": "admin/editor.product-quantity.warningQuantityThreshold.title",
+          "description":
+            "admin/editor.product-quantity.warningQuantityThreshold.title",
+          "type": "number",
+          "default": 0
+        }
+      }
+    },
+    "ProductSummaryQuantity" : {
+      "type": "object",
+      "properties": {
+        "warningQuantityThreshold": {
+          "title": "admin/editor.product-quantity.warningQuantityThreshold.title",
+          "description":
+            "admin/editor.product-quantity.warningQuantityThreshold.title",
+          "type": "number",
+          "default": 0
+        }
+      }
+    }
+  }
+}
