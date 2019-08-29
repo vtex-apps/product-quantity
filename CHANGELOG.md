@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.1.1] - 2019-08-29
+
 ## [1.1.0] - 2019-08-27
 ### Changed
 - how `ProductQuantity` worked. Now it is possible for it to receive `selectedItem` and `selectedQuantity` from external sources.
