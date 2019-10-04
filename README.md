@@ -91,8 +91,10 @@ To use this CSS API, you must add the `styles` builder and create an app styling
 
 Below, we describe the namespaces that are defined in the Product Quantity Selector.
 
-| Token name                   | Component                                                                                                    | Description                                           |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------- |
-| `quantitySelectorContainer`  | [BaseProductQuantity](https://github.com/vtex-apps/product-quantity/tree/master/react/components/BaseProductQuantity.tsx) | The main container of `Product Quantity Selector`     |
-| `availableQuantityContainer` | [BaseProductQuantity](https://github.com/vtex-apps/product-quantity/tree/master/react/components/BaseProductQuantity.tsx) | The container that wraps the available quantity view. |
-| `summaryContainer` | [ProductSummaryQuantity](https://github.com/vtex-apps/product-quantity/tree/master/react/ProductSummaryQuantity.tsx) | The container that wraps the `ProductSummaryQuantity`. |
+| Token name                   | Component                                                                                                                 | Description                                            |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| `quantitySelectorContainer`  | [BaseProductQuantity](https://github.com/vtex-apps/product-quantity/tree/master/react/components/BaseProductQuantity.tsx) | The main container of `Product Quantity Selector`      |
+| `availableQuantityContainer` | [BaseProductQuantity](https://github.com/vtex-apps/product-quantity/tree/master/react/components/BaseProductQuantity.tsx) | The container that wraps the available quantity view.  |
+| `quantitySelectorTitle`      | [BaseProductQuantity](https://github.com/vtex-apps/product-quantity/tree/master/react/components/BaseProductQuantity.tsx) | The container that wraps the title text.               |
+| `quantitySelectorStepper`    | [BaseProductQuantity](https://github.com/vtex-apps/product-quantity/tree/master/react/components/BaseProductQuantity.tsx) | The container that wraps the quantity stepper.         |
+| `summaryContainer`           | [ProductSummaryQuantity](https://github.com/vtex-apps/product-quantity/tree/master/react/ProductSummaryQuantity.tsx)      | The container that wraps the `ProductSummaryQuantity`. |

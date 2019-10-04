@@ -12,7 +12,7 @@ const BaseProductQuantity: StorefrontFunctionComponent<Props> = ({
 }) => {
   const onChange = useCallback(
     e => {
-      dispatch({ type: 'SET_QUANTITY', args: { quantity: e.value }})
+      dispatch({ type: 'SET_QUANTITY', args: { quantity: e.value } })
     },
     [dispatch]
   )
@@ -29,21 +29,23 @@ const BaseProductQuantity: StorefrontFunctionComponent<Props> = ({
 
   return (
     <div className={`${styles.quantitySelectorContainer} flex flex-column mb4`}>
-      <div className="mb3 c-muted-2 t-body">
+      <div className={`${styles.quantitySelectorTitle} mb3 c-muted-2 t-body`}>
         <FormattedMessage id="store/product-quantity.quantity" />
       </div>
-      <NumericStepper
-        size="small"
-        value={selectedQuantity}
-        minValue={1}
-        maxValue={availableQuantity ? availableQuantity : undefined}
-        onChange={onChange}
-      />
+      <div className={styles.quantitySelectorStepper}>
+        <NumericStepper
+          size="small"
+          value={selectedQuantity}
+          minValue={1}
+          maxValue={availableQuantity ? availableQuantity : undefined}
+          onChange={onChange}
+        />
+      </div>
       {showAvailable && (
         <div
           className={`${
             styles.availableQuantityContainer
-          } mv4 c-muted-2 t-small`}>
+            } mv4 c-muted-2 t-small`}>
           <FormattedMessage
             id="store/product-quantity.quantity-available"
             values={{ availableQuantity }}
