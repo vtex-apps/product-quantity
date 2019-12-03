@@ -2,7 +2,9 @@ import React, { useCallback } from 'react'
 import { NumericStepper } from 'vtex.styleguide'
 import { FormattedMessage } from 'react-intl'
 import { pathOr } from 'ramda'
-import styles from '../styles.css'
+import { useCssHandles } from 'vtex.css-handles'
+
+const CSS_HANDLES = ['quantitySelectorContainer', 'quantitySelectorTitle', 'quantitySelectorStepper', 'availableQuantityContainer'] as const
 
 const BaseProductQuantity: StorefrontFunctionComponent<Props> = ({
   warningQuantityThreshold = 0,
@@ -10,6 +12,7 @@ const BaseProductQuantity: StorefrontFunctionComponent<Props> = ({
   selectedItem,
   dispatch
 }) => {
+  const handles = useCssHandles(CSS_HANDLES)
   const onChange = useCallback(
     e => {
       dispatch({ type: 'SET_QUANTITY', args: { quantity: e.value } })
@@ -28,11 +31,11 @@ const BaseProductQuantity: StorefrontFunctionComponent<Props> = ({
   if (availableQuantity < 1) return null
 
   return (
-    <div className={`${styles.quantitySelectorContainer} flex flex-column mb4`}>
-      <div className={`${styles.quantitySelectorTitle} mb3 c-muted-2 t-body`}>
+    <div className={`${handles.quantitySelectorContainer} flex flex-column mb4`}>
+      <div className={`${handles.quantitySelectorTitle} mb3 c-muted-2 t-body`}>
         <FormattedMessage id="store/product-quantity.quantity" />
       </div>
-      <div className={styles.quantitySelectorStepper}>
+      <div className={handles.quantitySelectorStepper}>
         <NumericStepper
           size="small"
           value={selectedQuantity}
@@ -44,7 +47,7 @@ const BaseProductQuantity: StorefrontFunctionComponent<Props> = ({
       {showAvailable && (
         <div
           className={`${
-            styles.availableQuantityContainer
+            handles.availableQuantityContainer
             } mv4 c-muted-2 t-small`}>
           <FormattedMessage
             id="store/product-quantity.quantity-available"

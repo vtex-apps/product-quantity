@@ -1,12 +1,14 @@
 import React from 'react'
 import BaseProductQuantity from './components/BaseProductQuantity'
-
+import { useCssHandles } from 'vtex.css-handles'
 import { useProductSummaryDispatch, useProductSummary } from 'vtex.product-summary-context/ProductSummaryContext'
-import styles from './styles.css'
 
-const ProductSummaryQuantity: StorefrontFunctionComponent<Props>  = ({
+const CSS_HANDLES = ['summaryContainer'] as const
+
+const ProductSummaryQuantity: StorefrontFunctionComponent<Props> = ({
   warningQuantityThreshold
 }) => {
+  const handles = useCssHandles(CSS_HANDLES)
   const { selectedItem, selectedQuantity } = useProductSummary()
   const dispatch = useProductSummaryDispatch()
   return (
@@ -15,8 +17,8 @@ const ProductSummaryQuantity: StorefrontFunctionComponent<Props>  = ({
       // Stop propagation so it doesn't trigger the Link component above
       e.stopPropagation()
     }}
-    className={`${styles.summaryContainer} center mw-100`}>
-      
+      className={`${handles.summaryContainer} center mw-100`}>
+
       <BaseProductQuantity
         warningQuantityThreshold={warningQuantityThreshold}
         selectedItem={selectedItem}
