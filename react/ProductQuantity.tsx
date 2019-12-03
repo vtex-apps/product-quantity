@@ -3,7 +3,7 @@ import useProduct from 'vtex.product-context/useProduct'
 import { useProductDispatch } from 'vtex.product-context/ProductDispatchContext'
 import BaseProductQuantity from './components/BaseProductQuantity'
 
-const ProductQuantity: StorefrontFunctionComponent<Props>  = ({
+const ProductQuantity: StorefrontFunctionComponent<Props> = ({
   warningQuantityThreshold
 }) => {
   const { selectedItem, selectedQuantity } = useProduct()

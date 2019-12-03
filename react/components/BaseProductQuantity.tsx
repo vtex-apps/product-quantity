@@ -2,7 +2,9 @@ import React, { useCallback } from 'react'
 import { NumericStepper } from 'vtex.styleguide'
 import { FormattedMessage } from 'react-intl'
 import { pathOr } from 'ramda'
-import styles from '../styles.css'
+import { useCssHandles } from 'vtex.css-handles'
+
+const CSS_HANDLES = ['quantitySelectorContainer', 'quantitySelectorTitle', 'quantitySelectorStepper', 'availableQuantityContainer'] as const
 
 const BaseProductQuantity: StorefrontFunctionComponent<Props> = ({
   warningQuantityThreshold = 0,
@@ -10,9 +12,10 @@ const BaseProductQuantity: StorefrontFunctionComponent<Props> = ({
   selectedItem,
   dispatch
 }) => {
+  const handles = useCssHandles(CSS_HANDLES)
   const onChange = useCallback(
     e => {
-      dispatch({ type: 'SET_QUANTITY', args: { quantity: e.value }})
+      dispatch({ type: 'SET_QUANTITY', args: { quantity: e.value } })
     },
     [dispatch]
   )
@@ -28,22 +31,24 @@ const BaseProductQuantity: StorefrontFunctionComponent<Props> = ({
   if (availableQuantity < 1) return null
 
   return (
-    <div className={`${styles.quantitySelectorContainer} flex flex-column mb4`}>
-      <div className="mb3 c-muted-2 t-body">
+    <div className={`${handles.quantitySelectorContainer} flex flex-column mb4`}>
+      <div className={`${handles.quantitySelectorTitle} mb3 c-muted-2 t-body`}>
         <FormattedMessage id="store/product-quantity.quantity" />
       </div>
-      <NumericStepper
-        size="small"
-        value={selectedQuantity}
-        minValue={1}
-        maxValue={availableQuantity ? availableQuantity : undefined}
-        onChange={onChange}
-      />
+      <div className={handles.quantitySelectorStepper}>
+        <NumericStepper
+          size="small"
+          value={selectedQuantity}
+          minValue={1}
+          maxValue={availableQuantity ? availableQuantity : undefined}
+          onChange={onChange}
+        />
+      </div>
       {showAvailable && (
         <div
           className={`${
-            styles.availableQuantityContainer
-          } mv4 c-muted-2 t-small`}>
+            handles.availableQuantityContainer
+            } mv4 c-muted-2 t-small`}>
           <FormattedMessage
             id="store/product-quantity.quantity-available"
             values={{ availableQuantity }}
