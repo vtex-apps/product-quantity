@@ -1,22 +1,14 @@
-# VTEX Product Quantity
+📢 Don't fork this project. Use, [contribute](https://github.com/vtex-apps/awesome-io#contributing), or open issues through [Store Discussion](https://github.com/vtex-apps/store-discussion).
 
-## Description
+# Product Quantity
 
-The VTEX Product Quantity allows the user to add to cart the specified amount of the displayed product
+The Product Quantity allows users to a **add a chosen amount** of the displayed product in their cart.
 
-## Table of Contents
+![product-quantity](https://user-images.githubusercontent.com/52087100/70237475-0f4bd900-1746-11ea-9af2-38f794f4a3dd.png)
 
-- [Usage](#usage)
-  - [Blocks API](#blocks-api)
-    - [Configuration](#configuration)
-  - [Styles API](#styles-api)
-    - [CSS Namespaces](#css-namespaces)
+## Configuration 
 
-## Usage
-
-This app uses our store builder with the blocks architecture. To know more about Store Builder [click here.](https://help.vtex.com/en/tutorial/understanding-storebuilder-and-stylesbuilder#structuring-and-configuring-our-store-with-object-object)
-
-To use this app or override the default CSS you need import it in your dependencies on `manifest.json` file.
+1. Import the Product Quantity to your dependencies on `manifest.json` file.
 
 ```json
   "dependencies": {
@@ -24,13 +16,11 @@ To use this app or override the default CSS you need import it in your dependenc
   }
 ```
 
-The `product-quantity` block may be used inside the `store.product` block, while the `product-summary-quantity` block may be used inside the `product-summary.shelf` block.
+2. Add the Product Quantity block to your theme. If you want to display it on a Product Page, you should declare the `product-quantity` in the `store.product` block. In order to display it in a Product Summary block, i.e. in blocks that use Product Summary, declare the `product-summary-quantity` in the `product-summary.shelf` block.
 
-To use them, you must declare its use in your `store.product` or `product-summary.shelf` children array or inside a `flex-layout` inside `store.product`.
+Check an example of a Product Details Page built using Flex Layout with the `product-quantity` below:
 
-An example of usage in a `blocks.json`:
-
-```js
+```json
   "flex-layout.col#product-price": {
     "props": {
       "preventVerticalStretch": true,
@@ -40,7 +30,7 @@ An example of usage in a `blocks.json`:
       "product-name",
       "product-price#product-details",
       "product-separator",
-      "product-quantity",
++      "product-quantity",
       "sku-selector",
       "flex-layout.row#buy-button",
       "availability-subscriber",
@@ -55,44 +45,18 @@ An example of usage in a `blocks.json`:
   },
 ```
 
-### Blocks API
-
-#### Configuration
-
-Through the Storefront, you can change the Product Quantity Selector's behavior and interface. However, you also can make in your theme app, as Store theme does.
-
 | Prop name                  | Type     | Description                                                                                                                                                             |
 | -------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `warningQuantityThreshold` | `Number` | Only show the quantity of remaining items in stock if item available quantity is less than or equal to the value passed in this property. Default: 0 (does not appear). |
+| `warningQuantityThreshold` | `Number` | Displays the quantity of remaining items in stock if the available quantity is less than or equal to the value given to this property. Default: 0 (does not appear). |
 
-### Styles API
+## Customization
 
-This app provides some CSS classes as an API for style customization.
+In order to apply CSS customizations in this and other blocks, follow the instructions given in the recipe on [Using CSS Handles for store customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization). 
 
-To use this CSS API, you must add the `styles` builder and create an app styling CSS file.
-
-1. Add the `styles` builder to your `manifest.json`:
-
-```json
-  "builders": {
-    "styles": "1.x"
-  }
-```
-
-2. Create a file called `vtex.product-quantity.css` inside the `styles/css` folder. Add your custom styles:
-
-```css
-.quantitySelectorContainer {
-  margin-top: 10px;
-}
-```
-
-#### CSS Namespaces
-
-Below, we describe the namespaces that are defined in the Product Quantity Selector.
-
-| Token name                   | Component                                                                                                    | Description                                           |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------- |
-| `quantitySelectorContainer`  | [BaseProductQuantity](https://github.com/vtex-apps/product-quantity/tree/master/react/components/BaseProductQuantity.tsx) | The main container of `Product Quantity Selector`     |
-| `availableQuantityContainer` | [BaseProductQuantity](https://github.com/vtex-apps/product-quantity/tree/master/react/components/BaseProductQuantity.tsx) | The container that wraps the available quantity view. |
-| `summaryContainer` | [ProductSummaryQuantity](https://github.com/vtex-apps/product-quantity/tree/master/react/ProductSummaryQuantity.tsx) | The container that wraps the `ProductSummaryQuantity`. |
+| CSS Handles                  |
+| ---------------------------- | 
+| `quantitySelectorContainer`  |
+| `availableQuantityContainer` | 
+| `quantitySelectorTitle`      |
+| `quantitySelectorStepper`    |
+| `summaryContainer`           | 
