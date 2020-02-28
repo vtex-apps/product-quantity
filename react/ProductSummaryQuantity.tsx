@@ -1,36 +1,41 @@
 import React from 'react'
-import BaseProductQuantity from './components/BaseProductQuantity'
 import { useCssHandles } from 'vtex.css-handles'
-import { useProductSummaryDispatch, useProductSummary } from 'vtex.product-summary-context/ProductSummaryContext'
+import {
+  useProductSummaryDispatch,
+  useProductSummary,
+} from 'vtex.product-summary-context/ProductSummaryContext'
+
+import BaseProductQuantity, { Props } from './components/BaseProductQuantity'
 
 const CSS_HANDLES = ['summaryContainer'] as const
 
-const ProductSummaryQuantity: StorefrontFunctionComponent<Props> = ({
-  warningQuantityThreshold
-}) => {
+const ProductSummaryQuantity: StorefrontFunctionComponent<Props> = props => {
+  const { warningQuantityThreshold, showLabel, size } = props
   const handles = useCssHandles(CSS_HANDLES)
   const { selectedItem, selectedQuantity } = useProductSummary()
   const dispatch = useProductSummaryDispatch()
-  return (
-    <div onClick={e => {
-      e.preventDefault()
-      // Stop propagation so it doesn't trigger the Link component above
-      e.stopPropagation()
-    }}
-      className={`${handles.summaryContainer} center mw-100`}>
 
+  const handleClick: React.MouseEventHandler<HTMLDivElement> = e => {
+    e.preventDefault()
+    // Stop propagation so it doesn't trigger the Link component above
+    e.stopPropagation()
+  }
+
+  return (
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+    <div
+      onClick={handleClick}
+      className={`${handles.summaryContainer} center mw-100`}>
       <BaseProductQuantity
-        warningQuantityThreshold={warningQuantityThreshold}
+        size={size}
+        dispatch={dispatch}
+        showLabel={showLabel}
         selectedItem={selectedItem}
         selectedQuantity={selectedQuantity}
-        dispatch={dispatch}
+        warningQuantityThreshold={warningQuantityThreshold}
       />
     </div>
   )
-}
-
-interface Props {
-  warningQuantityThreshold: number
 }
 
 ProductSummaryQuantity.schema = {

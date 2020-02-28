@@ -4,13 +4,31 @@ import { FormattedMessage } from 'react-intl'
 import { pathOr } from 'ramda'
 import { useCssHandles } from 'vtex.css-handles'
 
-const CSS_HANDLES = ['quantitySelectorContainer', 'quantitySelectorTitle', 'quantitySelectorStepper', 'availableQuantityContainer'] as const
+export type NumericSize = 'small' | 'regular' | 'large'
+
+export interface Props {
+  dispatch: any
+  selectedItem: any
+  showLabel?: boolean
+  selectedQuantity: number
+  size?: NumericSize
+  warningQuantityThreshold: number
+}
+
+const CSS_HANDLES = [
+  'quantitySelectorContainer',
+  'quantitySelectorTitle',
+  'quantitySelectorStepper',
+  'availableQuantityContainer',
+] as const
 
 const BaseProductQuantity: StorefrontFunctionComponent<Props> = ({
-  warningQuantityThreshold = 0,
-  selectedQuantity,
+  dispatch,
   selectedItem,
-  dispatch
+  size = 'small',
+  showLabel = true,
+  selectedQuantity,
+  warningQuantityThreshold = 0,
 }) => {
   const handles = useCssHandles(CSS_HANDLES)
   const onChange = useCallback(
@@ -31,24 +49,26 @@ const BaseProductQuantity: StorefrontFunctionComponent<Props> = ({
   if (availableQuantity < 1) return null
 
   return (
-    <div className={`${handles.quantitySelectorContainer} flex flex-column mb4`}>
-      <div className={`${handles.quantitySelectorTitle} mb3 c-muted-2 t-body`}>
-        <FormattedMessage id="store/product-quantity.quantity" />
-      </div>
+    <div
+      className={`${handles.quantitySelectorContainer} flex flex-column mb4`}>
+      {showLabel && (
+        <div
+          className={`${handles.quantitySelectorTitle} mb3 c-muted-2 t-body`}>
+          <FormattedMessage id="store/product-quantity.quantity" />
+        </div>
+      )}
       <div className={handles.quantitySelectorStepper}>
         <NumericStepper
-          size="small"
-          value={selectedQuantity}
+          size={size}
           minValue={1}
-          maxValue={availableQuantity ? availableQuantity : undefined}
           onChange={onChange}
+          value={selectedQuantity}
+          maxValue={availableQuantity || undefined}
         />
       </div>
       {showAvailable && (
         <div
-          className={`${
-            handles.availableQuantityContainer
-            } mv4 c-muted-2 t-small`}>
+          className={`${handles.availableQuantityContainer} mv4 c-muted-2 t-small`}>
           <FormattedMessage
             id="store/product-quantity.quantity-available"
             values={{ availableQuantity }}
@@ -57,17 +77,6 @@ const BaseProductQuantity: StorefrontFunctionComponent<Props> = ({
       )}
     </div>
   )
-}
-
-interface Props {
-  warningQuantityThreshold: number
-  selectedQuantity: number
-  selectedItem: any
-  dispatch: any
-}
-
-BaseProductQuantity.defaultProps = {
-  warningQuantityThreshold: 0,
 }
 
 export default BaseProductQuantity
