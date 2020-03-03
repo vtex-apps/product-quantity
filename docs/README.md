@@ -45,9 +45,22 @@ Check an example of a Product Details Page built using Flex Layout with the `pro
   },
 ```
 
-| Prop name                  | Type     | Description                                                                                                                                                             |
-| -------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `warningQuantityThreshold` | `Number` | Displays the quantity of remaining items in stock if the available quantity is less than or equal to the value given to this property. Default: 0 (does not appear). |
+| Prop name | Type | Description | Default Value |
+| --- | --- | --- | --- |
+| `warningQuantityThreshold` | `Number` | Displays the quantity of remaining items in stock if the available quantity is less than or equal to the value given to this property. Default: 0 (does not appear). | `0` |
+| `size` | `NumericSize`| Preset values `font-size` and `padding` to the component | `'small'` |
+| `showLabel` | `boolean` | If it should show a label | `true` |
+
+### NumericSize
+
+You can check how big these values are and what classes it aplies by going to the [styleguide docs](https://styleguide.vtex.com/#/Components/Forms/NumericStepper).
+
+| Value | Description |
+| --- | --- |
+| `'small'` | Small size |
+| `'regular'` | Medium size |
+| `'large'` | Large size |
+
 
 ## Customization
 

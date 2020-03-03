@@ -3,8 +3,10 @@ declare module 'vtex.styleguide' {
 
   export const NumericStepper: ComponentType<NumericStepperProps>
 
+  type NumericSize = 'small' | 'regular' | 'large'
+
   interface NumericStepperProps {
-    size: 'small'
+    size: NumericSize
     value: number
     minValue: number
     maxValue?: number
