@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 - Component not working in `product-summary`.
 
+### Security
+- Bump versions of dependencies.
+
 ## [1.3.0] - 2020-03-03
 ### Added
 - `showLabel` and `size` props.
