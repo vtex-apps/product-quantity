@@ -1,9 +1,7 @@
 import React from 'react'
 import { useCssHandles } from 'vtex.css-handles'
-import {
-  useProductSummaryDispatch,
-  useProductSummary,
-} from 'vtex.product-summary-context/ProductSummaryContext'
+import useProduct from 'vtex.product-context/useProduct'
+import { useProductDispatch } from 'vtex.product-context/ProductDispatchContext'
 
 import BaseProductQuantity, { Props } from './components/BaseProductQuantity'
 
@@ -12,8 +10,8 @@ const CSS_HANDLES = ['summaryContainer'] as const
 const ProductSummaryQuantity: StorefrontFunctionComponent<Props> = props => {
   const { warningQuantityThreshold, showLabel, size } = props
   const handles = useCssHandles(CSS_HANDLES)
-  const { selectedItem, selectedQuantity } = useProductSummary()
-  const dispatch = useProductSummaryDispatch()
+  const { selectedItem, selectedQuantity } = useProduct()
+  const dispatch = useProductDispatch()
 
   const handleClick: React.MouseEventHandler<HTMLDivElement> = e => {
     e.preventDefault()
