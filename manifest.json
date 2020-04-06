@@ -1,7 +1,7 @@
 {
   "vendor": "vtex",
   "name": "product-quantity",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "title": "Product Quantity",
   "description": "Product quantity",
   "builders": {
