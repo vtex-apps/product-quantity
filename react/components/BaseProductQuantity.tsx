@@ -44,20 +44,13 @@ const BaseProductQuantity: StorefrontFunctionComponent<Props> = ({
     selectedItem
   )
 
-  const handleNumericClick: React.MouseEventHandler<HTMLDivElement> = e => {
-    e.preventDefault()
-    e.stopPropagation()
-  }
-
   const showAvailable = availableQuantity <= warningQuantityThreshold
 
   if (availableQuantity < 1) return null
 
   return (
-    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
     <div
-      className={`${handles.quantitySelectorContainer} flex flex-column mb4`}
-      onClick={handleNumericClick}>
+      className={`${handles.quantitySelectorContainer} flex flex-column mb4`}>
       {showLabel && (
         <div
           className={`${handles.quantitySelectorTitle} mb3 c-muted-2 t-body`}>
