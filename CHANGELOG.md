@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+- `unitMultiplier`, `measurementUnit`, and `showMeasurementUnit` props.
+
 ## [1.3.2] - 2020-04-06
 ### Fixed
 - `product-summary-quantity` not working.
