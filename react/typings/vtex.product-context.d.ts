@@ -6,6 +6,8 @@ declare module 'vtex.product-context/useProduct' {
     selectedQuantity: number
     selectedItem: {
       sellers: Array<{
+        unitMultiplier: number
+        measurementUnit: string
         commertialOffer: {
           AvailableQuantity: number
         }

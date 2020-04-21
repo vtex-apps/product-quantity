@@ -53,6 +53,7 @@ Check an example of a Product Details Page built using Flex Layout with the `pro
 | `warningQuantityThreshold` | `Number` | Displays the quantity of remaining items in stock if the available quantity is less than or equal to the value given to this property. Default: 0 (does not appear). | `0` |
 | `size` | `NumericSize`| Preset values `font-size` and `padding` to the component | `'small'` |
 | `showLabel` | `boolean` | If it should show a label | `true` |
+| `showMeasurementUnit` | `boolean` | If it should show a measumentUnit | `true` |
 
 ### NumericSize
 
