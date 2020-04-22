@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 import { NumericStepper } from 'vtex.styleguide'
 import { FormattedMessage } from 'react-intl'
-import { pathOr, path } from 'ramda'
+import { pathOr } from 'ramda'
 import { useCssHandles } from 'vtex.css-handles'
 
 export type NumericSize = 'small' | 'regular' | 'large'
