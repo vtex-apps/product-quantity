@@ -5,16 +5,16 @@ declare module 'vtex.product-context/useProduct' {
   interface ProductContext {
     selectedQuantity: number
     selectedItem: {
-      sellers: {
+      sellers: Array<{
         commertialOffer: {
           AvailableQuantity: number
         }
-      }[]
+      }>
     }
   }
 }
 
 declare module 'vtex.product-context/ProductDispatchContext' {
-  type DispatchFunction = (payload: { type: string, args?: any }) => void
+  type DispatchFunction = (payload: { type: string; args?: any }) => void
   export const useProductDispatch: () => DispatchFunction
 }
