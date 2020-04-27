@@ -8,7 +8,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ### Added
-- `showMeasurementUnit` prop.
+- Show `measurementUnit` if it's different from the default.
+- Handle `unitMultiplier`.
 
 ## [1.3.2] - 2020-04-06
 ### Fixed

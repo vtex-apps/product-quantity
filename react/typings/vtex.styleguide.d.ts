@@ -11,8 +11,7 @@ declare module 'vtex.styleguide' {
     minValue: number
     maxValue?: number
     unitMultiplier: number
-    measurementUnit: string
-    showMeasurementUnit: boolean
+    suffix: string
     onChange: (e: any) => void
   }
 }

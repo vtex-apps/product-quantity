@@ -10,7 +10,6 @@ export interface Props {
   dispatch: any
   selectedItem: any
   showLabel?: boolean
-  showMeasurementUnit?: boolean
   selectedQuantity: number
   size?: NumericSize
   warningQuantityThreshold: number
@@ -23,12 +22,13 @@ const CSS_HANDLES = [
   'availableQuantityContainer',
 ] as const
 
+const DEFAULT_UNIT = 'un'
+
 const BaseProductQuantity: StorefrontFunctionComponent<Props> = ({
   dispatch,
   selectedItem,
   size = 'small',
   showLabel = true,
-  showMeasurementUnit = false,
   selectedQuantity,
   warningQuantityThreshold = 0,
 }) => {
@@ -65,8 +65,9 @@ const BaseProductQuantity: StorefrontFunctionComponent<Props> = ({
           size={size}
           minValue={1}
           unitMultiplier={unitMultiplier}
-          measurementUnit={measurementUnit}
-          showMeasurementUnit={showMeasurementUnit}
+          suffix={
+            measurementUnit !== DEFAULT_UNIT ? measurementUnit : undefined
+          }
           onChange={onChange}
           value={selectedQuantity}
           maxValue={availableQuantity || undefined}
