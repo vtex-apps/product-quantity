@@ -10,6 +10,8 @@ declare module 'vtex.styleguide' {
     value: number
     minValue: number
     maxValue?: number
+    unitMultiplier: number
+    suffix: string
     onChange: (e: any) => void
   }
 }

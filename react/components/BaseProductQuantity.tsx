@@ -22,6 +22,8 @@ const CSS_HANDLES = [
   'availableQuantityContainer',
 ] as const
 
+const DEFAULT_UNIT = 'un'
+
 const BaseProductQuantity: StorefrontFunctionComponent<Props> = ({
   dispatch,
   selectedItem,
@@ -43,6 +45,7 @@ const BaseProductQuantity: StorefrontFunctionComponent<Props> = ({
     ['sellers', 0, 'commertialOffer', 'AvailableQuantity'],
     selectedItem
   )
+  const { unitMultiplier, measurementUnit } = selectedItem
 
   const showAvailable = availableQuantity <= warningQuantityThreshold
 
@@ -61,6 +64,10 @@ const BaseProductQuantity: StorefrontFunctionComponent<Props> = ({
         <NumericStepper
           size={size}
           minValue={1}
+          unitMultiplier={unitMultiplier}
+          suffix={
+            measurementUnit !== DEFAULT_UNIT ? measurementUnit : undefined
+          }
           onChange={onChange}
           value={selectedQuantity}
           maxValue={availableQuantity || undefined}
