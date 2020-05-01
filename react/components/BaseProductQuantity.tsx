@@ -2,12 +2,14 @@ import React, { useCallback } from 'react'
 import { NumericStepper } from 'vtex.styleguide'
 import { FormattedMessage } from 'react-intl'
 import { useCssHandles } from 'vtex.css-handles'
+import { DispatchFunction } from 'vtex.product-context/ProductDispatchContext'
+import { ProductContext } from 'vtex.product-context'
 
 export type NumericSize = 'small' | 'regular' | 'large'
 
 export interface Props {
-  dispatch: any
-  selectedItem?: SelectedItem
+  dispatch: DispatchFunction
+  selectedItem?: ProductContext['selectedItem']
   showLabel?: boolean
   selectedQuantity: number
   size?: NumericSize
@@ -39,7 +41,9 @@ const BaseProductQuantity: StorefrontFunctionComponent<Props> = ({
     [dispatch]
   )
 
-  const availableQuantity = selectedItem?.sellers?.[0]?.commertialOffer?.AvailableQuantity ?? 0
+  const availableQuantity =
+    selectedItem?.sellers?.[0]?.commertialOffer?.AvailableQuantity ?? 0
+
   if (availableQuantity < 1 || !selectedItem) {
     return null
   }
@@ -47,8 +51,6 @@ const BaseProductQuantity: StorefrontFunctionComponent<Props> = ({
   const { unitMultiplier, measurementUnit } = selectedItem
 
   const showAvailable = availableQuantity <= warningQuantityThreshold
-
-
 
   return (
     <div
@@ -65,7 +67,9 @@ const BaseProductQuantity: StorefrontFunctionComponent<Props> = ({
           minValue={1}
           unitMultiplier={unitMultiplier}
           suffix={
-            measurementUnit && measurementUnit !== DEFAULT_UNIT ? measurementUnit : undefined
+            measurementUnit && measurementUnit !== DEFAULT_UNIT
+              ? measurementUnit
+              : undefined
           }
           onChange={onChange}
           value={selectedQuantity}
