@@ -4,15 +4,7 @@ declare module 'vtex.product-context/useProduct' {
 
   interface ProductContext {
     selectedQuantity: number
-    selectedItem: {
-      sellers: Array<{
-        unitMultiplier: number
-        measurementUnit: string
-        commertialOffer: {
-          AvailableQuantity: number
-        }
-      }>
-    }
+    selectedItem?: SelectedItem
   }
 }
 
