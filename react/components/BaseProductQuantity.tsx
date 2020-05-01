@@ -49,7 +49,7 @@ const BaseProductQuantity: StorefrontFunctionComponent<Props> = ({
   }
 
   const unitMultiplier = selectedItem?.unitMultiplier ?? 1
-  const measurementUnit = selectedItem?.measurementUnit ?? 'un'
+  const measurementUnit = selectedItem?.measurementUnit ?? DEFAULT_UNIT
   const showAvailable = availableQuantity <= warningQuantityThreshold
 
   return (
