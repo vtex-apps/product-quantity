@@ -47,8 +47,8 @@ const getDropdownOptions = (maxValue: number) => {
 }
 
 const CSS_HANDLES = [
-  'quantityDropdownMobileContainer',
-  'quantityDropdownContainer',
+  'quantitySelectorDropdownMobileContainer',
+  'quantitySelectorDropdownContainer',
 ] as const
 
 const DropdownProductQuantity: FunctionComponent<DropdownProps> = ({
@@ -75,8 +75,7 @@ const DropdownProductQuantity: FunctionComponent<DropdownProps> = ({
   return (
     <Fragment>
       <div
-        className={`${handles.quantityDropdownMobileContainer} dn-m`}
-        style={{ zIndex: 8888 }}>
+        className={`${handles.quantitySelectorDropdownMobileContainer} dn-m`}>
         <Dropdown
           id={`quantity-dropdown-mobile-${itemId}`}
           testId={`quantity-dropdown-mobile-${itemId}`}
@@ -87,7 +86,7 @@ const DropdownProductQuantity: FunctionComponent<DropdownProps> = ({
           placeholder=" "
         />
       </div>
-      <div className={`${handles.quantityDropdownContainer} dn db-m`}>
+      <div className={`${handles.quantitySelectorDropdownContainer} dn db-m`}>
         <Dropdown
           id={`quantity-dropdown-${itemId}`}
           testId={`quantity-dropdown-${itemId}`}
