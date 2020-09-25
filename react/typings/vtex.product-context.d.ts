@@ -10,6 +10,7 @@ declare module 'vtex.product-context' {
   }
 
   interface SelectedItem {
+    itemId: string
     unitMultiplier: number
     measurementUnit: string
     sellers: Array<{

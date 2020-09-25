@@ -2,12 +2,15 @@ import React from 'react'
 import useProduct from 'vtex.product-context/useProduct'
 import { useProductDispatch } from 'vtex.product-context/ProductDispatchContext'
 
-import BaseProductQuantity, { Props } from './components/BaseProductQuantity'
+import BaseProductQuantity, {
+  BaseProps,
+} from './components/BaseProductQuantity'
 
-const ProductQuantity: StorefrontFunctionComponent<Props> = props => {
-  const { warningQuantityThreshold, showLabel, size } = props
+const ProductQuantity: StorefrontFunctionComponent<BaseProps> = props => {
+  const { warningQuantityThreshold, showLabel, size, selectorType } = props
   const { selectedItem, selectedQuantity } = useProduct()
   const dispatch = useProductDispatch()
+
   return (
     <BaseProductQuantity
       size={size}
@@ -15,6 +18,7 @@ const ProductQuantity: StorefrontFunctionComponent<Props> = props => {
       showLabel={showLabel}
       selectedItem={selectedItem}
       selectedQuantity={selectedQuantity}
+      selectorType={selectorType}
       warningQuantityThreshold={warningQuantityThreshold}
     />
   )

@@ -3,12 +3,14 @@ import { useCssHandles } from 'vtex.css-handles'
 import useProduct from 'vtex.product-context/useProduct'
 import { useProductDispatch } from 'vtex.product-context/ProductDispatchContext'
 
-import BaseProductQuantity, { Props } from './components/BaseProductQuantity'
+import BaseProductQuantity, {
+  BaseProps,
+} from './components/BaseProductQuantity'
 
 const CSS_HANDLES = ['summaryContainer'] as const
 
-const ProductSummaryQuantity: StorefrontFunctionComponent<Props> = props => {
-  const { warningQuantityThreshold, showLabel, size } = props
+const ProductSummaryQuantity: StorefrontFunctionComponent<BaseProps> = props => {
+  const { warningQuantityThreshold, showLabel, size, selectorType } = props
   const handles = useCssHandles(CSS_HANDLES)
   const { selectedItem, selectedQuantity } = useProduct()
   const dispatch = useProductDispatch()
@@ -30,6 +32,7 @@ const ProductSummaryQuantity: StorefrontFunctionComponent<Props> = props => {
         showLabel={showLabel}
         selectedItem={selectedItem}
         selectedQuantity={selectedQuantity}
+        selectorType={selectorType}
         warningQuantityThreshold={warningQuantityThreshold}
       />
     </div>

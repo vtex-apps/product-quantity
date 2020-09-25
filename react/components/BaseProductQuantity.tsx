@@ -1,17 +1,21 @@
-import React, { useCallback } from 'react'
-import { NumericStepper } from 'vtex.styleguide'
+import React, { useCallback, useState } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { useCssHandles } from 'vtex.css-handles'
 import { DispatchFunction } from 'vtex.product-context/ProductDispatchContext'
 import { ProductContext } from 'vtex.product-context'
 
-export type NumericSize = 'small' | 'regular' | 'large'
+import DropdownProductQuantity from './DropdownProductQuantity'
+import InputProductQuantity from './InputProductQuantity'
 
-export interface Props {
+export type NumericSize = 'small' | 'regular' | 'large'
+export type SelectorType = 'input' | 'dropdown'
+
+export interface BaseProps {
   dispatch: DispatchFunction
   selectedItem?: ProductContext['selectedItem']
   showLabel?: boolean
   selectedQuantity: number
+  selectorType?: SelectorType
   size?: NumericSize
   warningQuantityThreshold: number
 }
@@ -19,24 +23,32 @@ export interface Props {
 const CSS_HANDLES = [
   'quantitySelectorContainer',
   'quantitySelectorTitle',
-  'quantitySelectorStepper',
   'availableQuantityContainer',
 ] as const
 
-const DEFAULT_UNIT = 'un'
+export type OnChangeCallback = {
+  value: number
+  selector?: BaseProps['selectorType']
+}
 
-const BaseProductQuantity: StorefrontFunctionComponent<Props> = ({
+const BaseProductQuantity: StorefrontFunctionComponent<BaseProps> = ({
   dispatch,
   selectedItem,
   size = 'small',
   showLabel = true,
   selectedQuantity,
   warningQuantityThreshold = 0,
+  selectorType = 'input',
 }) => {
   const handles = useCssHandles(CSS_HANDLES)
+  const [curSelector, setSelector] = useState(selectorType)
   const onChange = useCallback(
-    e => {
+    (e: OnChangeCallback) => {
       dispatch({ type: 'SET_QUANTITY', args: { quantity: e.value } })
+
+      if (e.selector) {
+        setSelector(e.selector)
+      }
     },
     [dispatch]
   )
@@ -48,8 +60,6 @@ const BaseProductQuantity: StorefrontFunctionComponent<Props> = ({
     return null
   }
 
-  const unitMultiplier = selectedItem?.unitMultiplier ?? 1
-  const measurementUnit = selectedItem?.measurementUnit ?? DEFAULT_UNIT
   const showAvailable = availableQuantity <= warningQuantityThreshold
 
   return (
@@ -61,21 +71,25 @@ const BaseProductQuantity: StorefrontFunctionComponent<Props> = ({
           <FormattedMessage id="store/product-quantity.quantity" />
         </div>
       )}
-      <div className={handles.quantitySelectorStepper}>
-        <NumericStepper
+      {curSelector === 'input' ? (
+        <InputProductQuantity
           size={size}
-          minValue={1}
-          unitMultiplier={unitMultiplier}
-          suffix={
-            measurementUnit && measurementUnit !== DEFAULT_UNIT
-              ? measurementUnit
-              : undefined
-          }
+          unitMultiplier={selectedItem.unitMultiplier}
+          measurementUnit={selectedItem.measurementUnit}
+          selectedQuantity={selectedQuantity}
+          availableQuantity={availableQuantity}
           onChange={onChange}
-          value={selectedQuantity}
-          maxValue={availableQuantity || undefined}
         />
-      </div>
+      ) : null}
+      {curSelector === 'dropdown' ? (
+        <DropdownProductQuantity
+          itemId={selectedItem.itemId}
+          selectedQuantity={selectedQuantity}
+          availableQuantity={availableQuantity}
+          onChange={onChange}
+          size={size}
+        />
+      ) : null}
       {showAvailable && (
         <div
           className={`${handles.availableQuantityContainer} mv4 c-muted-2 t-small`}>
