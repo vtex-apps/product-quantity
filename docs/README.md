@@ -53,6 +53,7 @@ Check an example of a Product Details Page built using Flex Layout with the `pro
 | `warningQuantityThreshold` | `Number` | Displays the quantity of remaining items in stock if the available quantity is less than or equal to the value given to this property. Default: 0 (does not appear). | `0` |
 | `size` | `NumericSize`| Preset values `font-size` and `padding` to the component | `'small'` |
 | `showLabel` | `boolean` | If it should show a label | `true` |
+| `selectorType` | `SelectorType` | Determines the initial behavior of the selector | `'input'` |
 
 ### NumericSize
 
@@ -64,18 +65,28 @@ You can check how big these values are and what classes it aplies by going to th
 | `'regular'` | Medium size |
 | `'large'` | Large size |
 
+### SelectorType
+
+You can use SelectorType to indicate how the quantity selector should behave initially.
+
+| Value | Description |
+| --- | --- |
+| `'input'` | Shows an input field where the quantity can be entered directly. Also presents side buttons that can be used to increase or decrease the value |
+| `'dropdown'` | Shows a preset list of quantity options. If the last option is selected, the behavior is updated to `'input'` |
 
 ## Customization
 
 In order to apply CSS customizations in this and other blocks, follow the instructions given in the recipe on [Using CSS Handles for store customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization). 
 
-| CSS Handles                  |
-| ---------------------------- | 
-| `quantitySelectorContainer`  |
-| `availableQuantityContainer` | 
-| `quantitySelectorTitle`      |
-| `quantitySelectorStepper`    |
-| `summaryContainer`           | 
+| CSS Handles                                |
+| ------------------------------------------ | 
+| `quantitySelectorContainer`                |
+| `availableQuantityContainer`               | 
+| `quantitySelectorTitle`                    |
+| `quantitySelectorStepper`                  |
+| `quantitySelectorDropdownMobileContainer`  |
+| `quantitySelectorDropdownContainer`        |
+| `summaryContainer`                         | 
 
 ## Contributors ✨
 
