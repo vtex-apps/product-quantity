@@ -1,17 +1,18 @@
-📢 Don't fork this project. Use, [contribute](https://github.com/vtex-apps/awesome-io#contributing), or open issues through [Store Discussion](https://github.com/vtex-apps/store-discussion).
+📢 Don't fork this project. Use, [contribute](https://github.com/vtex-apps/product-quantity), or open issues through [Store Discussion](https://github.com/vtex-apps/store-discussion).
+
+# Product Quantity
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-# Product Quantity
-
-The Product Quantity allows users to a **add a chosen amount** of the displayed product in their cart.
+The Product Quantity allows users to a add a chosen amount of the displayed product in their cart.
 
 ![product-quantity](https://user-images.githubusercontent.com/52087100/70237475-0f4bd900-1746-11ea-9af2-38f794f4a3dd.png)
 
 ## Configuration 
 
-1. Import the Product Quantity to your dependencies on `manifest.json` file.
+1. Add the Product Quantity app to your dependencies in the theme's `manifest.json` file:
 
 ```json
   "dependencies": {
@@ -19,11 +20,16 @@ The Product Quantity allows users to a **add a chosen amount** of the displayed 
   }
 ```
 
-2. Add the Product Quantity block to your theme. If you want to display it on a Product Page, you should declare the `product-quantity` in the `store.product` block. In order to display it in a Product Summary block, i.e. in blocks that use Product Summary, declare the `product-summary-quantity` in the `product-summary.shelf` block.
+You are now able to use all blocks that are exported by the Product Quantity app. Check out the full list below:
 
-Check an example of a Product Details Page built using Flex Layout with the `product-quantity` below:
+| Block name | Description | 
+| --------- | ------------ |
+| `product-quantity` | Displays a quantity selector on the product details page. This block must be declared in the theme's `store.product` page template. | 
+| `product-summary-quantity` | Displays a quantity selector on [Product Summary](https://vtex.io/docs/components/all/vtex.product-summary/)'s blocks. This block must be declared as a children of the `product-summary.shelf` block. | 
 
-```json
+2. According to your desired scenario, add the `product-quantity`/`product-summary-quantity` blocks to your theme. For example:
+
+```diff
   "flex-layout.col#product-price": {
     "props": {
       "preventVerticalStretch": true,
@@ -33,7 +39,7 @@ Check an example of a Product Details Page built using Flex Layout with the `pro
       "product-name",
       "product-price#product-details",
       "product-separator",
-+      "product-quantity",
++     "product-quantity",
       "sku-selector",
       "flex-layout.row#buy-button",
       "availability-subscriber",
@@ -48,31 +54,16 @@ Check an example of a Product Details Page built using Flex Layout with the `pro
   },
 ```
 
+*In the example above a Product Details Page is built using Flex Layout and the `product-quantity` block.*
+
+### `product-quantity` and `product-summary-quantity` props
+
 | Prop name | Type | Description | Default Value |
 | --- | --- | --- | --- |
-| `warningQuantityThreshold` | `Number` | Displays the quantity of remaining items in stock if the available quantity is less than or equal to the value given to this property. Default: 0 (does not appear). | `0` |
-| `size` | `NumericSize`| Preset values `font-size` and `padding` to the component | `'small'` |
-| `showLabel` | `boolean` | If it should show a label | `true` |
-| `selectorType` | `SelectorType` | Determines the initial behavior of the selector | `'input'` |
-
-### NumericSize
-
-You can check how big these values are and what classes it aplies by going to the [styleguide docs](https://styleguide.vtex.com/#/Components/Forms/NumericStepper).
-
-| Value | Description |
-| --- | --- |
-| `'small'` | Small size |
-| `'regular'` | Medium size |
-| `'large'` | Large size |
-
-### SelectorType
-
-You can use SelectorType to indicate how the quantity selector should behave initially.
-
-| Value | Description |
-| --- | --- |
-| `'input'` | Shows an input field where the quantity can be entered directly. Also presents side buttons that can be used to increase or decrease the value |
-| `'dropdown'` | Shows a preset list of quantity options. If the last option is selected, the behavior is updated to `'input'` |
+| `warningQuantityThreshold` | `number` | Displays the quantity of remaining items in stock if the available quantity is less than or equal to the value given to this property. | `0` (the quantity is not displayed) |
+| `size` | `enum`| Preset size values for `font-size` and `padding`. You can check these value measures by accessing the [VTEX Styleguide](https://styleguide.vtex.com/#/Components/Forms/NumericStepper). Possible values are: `small`, `regular`, and `large`. | `small` |
+| `showLabel` | `boolean` | Whether a label should be displayed (`true`) or not (`false`). | `true` |
+| `selectorType` | `enum` | Defines how the quantity selector should initially behave. Possible values are: `input` (displays an input field where the quantity can be directly defined, in addition to side buttons to increase or decrease the value) and `dropdown` (shows a list of predefined-quantity options. In case the last quantity option is selected by users, the component starts to behave according to the `input` prop). | `input` |
 
 ## Customization
 
@@ -80,17 +71,19 @@ In order to apply CSS customizations in this and other blocks, follow the instru
 
 | CSS Handles                                |
 | ------------------------------------------ | 
+| `availableQuantityContainer`               |
 | `quantitySelectorContainer`                |
-| `availableQuantityContainer`               | 
-| `quantitySelectorTitle`                    |
-| `quantitySelectorStepper`                  |
-| `quantitySelectorDropdownMobileContainer`  |
 | `quantitySelectorDropdownContainer`        |
-| `summaryContainer`                         | 
+| `quantitySelectorDropdownMobileContainer`  |
+| `quantitySelectorStepper`                  |
+| `quantitySelectorTitle`                    |
+| `summaryContainer`                         |
+
+<!-- DOCS-IGNORE:start -->
 
 ## Contributors ✨
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Thanks goes to these wonderful people:
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -106,3 +99,6 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind are welcome!
+
+<!-- DOCS-IGNORE:end -->
+
