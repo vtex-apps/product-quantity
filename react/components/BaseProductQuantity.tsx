@@ -5,10 +5,10 @@ import { DispatchFunction } from 'vtex.product-context/ProductDispatchContext'
 import { ProductContext } from 'vtex.product-context'
 
 import DropdownProductQuantity from './DropdownProductQuantity'
-import InputProductQuantity from './InputProductQuantity'
+import StepperProductQuantity from './StepperProductQuantity'
 
 export type NumericSize = 'small' | 'regular' | 'large'
-export type SelectorType = 'input' | 'dropdown'
+export type SelectorType = 'stepper' | 'dropdown'
 
 export interface BaseProps {
   dispatch: DispatchFunction
@@ -38,7 +38,7 @@ const BaseProductQuantity: StorefrontFunctionComponent<BaseProps> = ({
   showLabel = true,
   selectedQuantity,
   warningQuantityThreshold = 0,
-  selectorType = 'input',
+  selectorType = 'stepper',
 }) => {
   const handles = useCssHandles(CSS_HANDLES)
   const [curSelector, setSelector] = useState(selectorType)
@@ -71,8 +71,8 @@ const BaseProductQuantity: StorefrontFunctionComponent<BaseProps> = ({
           <FormattedMessage id="store/product-quantity.quantity" />
         </div>
       )}
-      {curSelector === 'input' ? (
-        <InputProductQuantity
+      {curSelector === 'stepper' ? (
+        <StepperProductQuantity
           size={size}
           unitMultiplier={selectedItem.unitMultiplier}
           measurementUnit={selectedItem.measurementUnit}

@@ -7,7 +7,7 @@ import { OnChangeCallback, BaseProps } from './BaseProductQuantity'
 
 const DEFAULT_UNIT = 'un'
 
-interface InputProps {
+interface StepperProps {
   unitMultiplier: SelectedItem['unitMultiplier']
   measurementUnit: SelectedItem['measurementUnit']
   selectedQuantity: BaseProps['selectedQuantity']
@@ -17,7 +17,7 @@ interface InputProps {
 }
 const CSS_HANDLES = ['quantitySelectorStepper'] as const
 
-const InputProductQuantity: FunctionComponent<InputProps> = ({
+const StepperProductQuantity: FunctionComponent<StepperProps> = ({
   unitMultiplier = 1,
   measurementUnit = DEFAULT_UNIT,
   size = 'small',
@@ -42,4 +42,4 @@ const InputProductQuantity: FunctionComponent<InputProps> = ({
   )
 }
 
-export default InputProductQuantity
+export default StepperProductQuantity

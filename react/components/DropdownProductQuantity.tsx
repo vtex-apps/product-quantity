@@ -67,7 +67,7 @@ const DropdownProductQuantity: FunctionComponent<DropdownProps> = ({
     let selector: BaseProps['selectorType']
 
     if (validatedValue >= Math.min(availableQuantity, MAX_DROPDOWN_VALUE)) {
-      selector = 'input'
+      selector = 'stepper'
     }
 
     onChange({ value: validatedValue, selector })

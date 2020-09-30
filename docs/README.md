@@ -63,7 +63,7 @@ You are now able to use all blocks that are exported by the Product Quantity app
 | `warningQuantityThreshold` | `number` | Displays the quantity of remaining items in stock if the available quantity is less than or equal to the value given to this property. | `0` (the quantity is not displayed) |
 | `size` | `enum`| Preset size values for `font-size` and `padding`. You can check these value measures by accessing the [VTEX Styleguide](https://styleguide.vtex.com/#/Components/Forms/NumericStepper). Possible values are: `small`, `regular`, and `large`. | `small` |
 | `showLabel` | `boolean` | Whether a label should be displayed (`true`) or not (`false`). | `true` |
-| `selectorType` | `enum` | Defines how the quantity selector should initially behave. Possible values are: `input` (displays an input field where the quantity can be directly defined, in addition to side buttons to increase or decrease the value) and `dropdown` (shows a list of predefined-quantity options. In case the last quantity option is selected by users, the component starts to behave according to the `input` prop). | `input` |
+| `selectorType` | `enum` | Defines how the quantity selector should initially behave. Possible values are: `stepper` (displays an input field where the quantity can be directly defined, in addition to side buttons to increase or decrease the value) and `dropdown` (shows a list of predefined-quantity options. In case the last quantity option is selected by users, the component starts to behave according to the `stepper` prop). | `stepper` |
 
 ## Customization
 
