@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { useCssHandles } from 'vtex.css-handles'
 import { DispatchFunction } from 'vtex.product-context/ProductDispatchContext'
@@ -28,7 +28,6 @@ const CSS_HANDLES = [
 
 export type OnChangeCallback = {
   value: number
-  selector?: BaseProps['selectorType']
 }
 
 const BaseProductQuantity: StorefrontFunctionComponent<BaseProps> = ({
@@ -41,14 +40,9 @@ const BaseProductQuantity: StorefrontFunctionComponent<BaseProps> = ({
   selectorType = 'stepper',
 }) => {
   const handles = useCssHandles(CSS_HANDLES)
-  const [curSelector, setSelector] = useState(selectorType)
   const onChange = useCallback(
     (e: OnChangeCallback) => {
       dispatch({ type: 'SET_QUANTITY', args: { quantity: e.value } })
-
-      if (e.selector) {
-        setSelector(e.selector)
-      }
     },
     [dispatch]
   )
@@ -71,7 +65,7 @@ const BaseProductQuantity: StorefrontFunctionComponent<BaseProps> = ({
           <FormattedMessage id="store/product-quantity.quantity" />
         </div>
       )}
-      {curSelector === 'stepper' ? (
+      {selectorType === 'stepper' ? (
         <StepperProductQuantity
           size={size}
           unitMultiplier={selectedItem.unitMultiplier}
@@ -81,7 +75,7 @@ const BaseProductQuantity: StorefrontFunctionComponent<BaseProps> = ({
           onChange={onChange}
         />
       ) : null}
-      {curSelector === 'dropdown' ? (
+      {selectorType === 'dropdown' ? (
         <DropdownProductQuantity
           itemId={selectedItem.itemId}
           selectedQuantity={selectedQuantity}

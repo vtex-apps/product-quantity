@@ -3,6 +3,7 @@ declare module 'vtex.styleguide' {
 
   export const NumericStepper: ComponentType<NumericStepperProps>
   export const Dropdown: ComponentType<DropdownProps>
+  export const Input: ComponentType<InputProps>
 
   type NumericSize = 'small' | 'regular' | 'large'
 
@@ -19,7 +20,7 @@ declare module 'vtex.styleguide' {
   interface DropdownProps {
     id: string
     testId: string
-    onChange: (e: Event) => void
+    onChange: (e: any) => void
     placeholder: string
     options: Array<{
       value: number
@@ -27,5 +28,15 @@ declare module 'vtex.styleguide' {
     }>
     size: NumericSize
     value: number
+  }
+
+  interface InputProps {
+    id: string
+    size: NumericSize
+    value: string
+    maxLength: number
+    onChange: (e: any) => void
+    onBlur: () => void
+    placeholder: string
   }
 }
