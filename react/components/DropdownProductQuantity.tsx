@@ -1,12 +1,18 @@
-import React, { FunctionComponent, Fragment, useState } from 'react'
+import React, { FunctionComponent, useState } from 'react'
 import { Dropdown, Input } from 'vtex.styleguide'
 import { useCssHandles } from 'vtex.css-handles'
 import { SelectedItem } from 'vtex.product-context'
+import { useDevice } from 'vtex.device-detector'
 
 import { OnChangeCallback, BaseProps } from './BaseProductQuantity'
 
 const MAX_DROPDOWN_VALUE = 10
 const MAX_INPUT_LENGTH = 5
+
+const DESKTOP_DROPDOWN_ID = 'quantity-dropdown'
+const MOBILE_DROPDOWN_ID = 'quantity-dropdown-mobile'
+const DESKTOP_INPUT_ID = 'quantity-input'
+const MOBILE_INPUT_ID = 'quantity-input-mobile'
 
 interface DropdownProps {
   itemId: SelectedItem['itemId']
@@ -15,6 +21,8 @@ interface DropdownProps {
   onChange: (e: OnChangeCallback) => void
   size: BaseProps['size']
 }
+
+type InternalBehavior = 'dropdown' | 'input'
 
 const normalizeValue = (value: number, maxValue: number) =>
   value > maxValue ? maxValue : value
@@ -64,8 +72,6 @@ const CSS_HANDLES = [
   'quantitySelectorInputContainer',
 ] as const
 
-type InternalBehavior = 'dropdown' | 'input'
-
 const DropdownProductQuantity: FunctionComponent<DropdownProps> = ({
   itemId,
   selectedQuantity,
@@ -73,33 +79,36 @@ const DropdownProductQuantity: FunctionComponent<DropdownProps> = ({
   onChange,
   availableQuantity,
 }) => {
-  const [behavior, setInternalBehavior] = useState<InternalBehavior>('dropdown')
-  const [curDisplayValue, setDisplayValue] = useState(`${selectedQuantity}`)
+  const [internalBehavior, setInternalBehavior] = useState<InternalBehavior>(
+    'dropdown'
+  )
+  const [displayValue, setDisplayValue] = useState(`${selectedQuantity}`)
 
+  const { isMobile } = useDevice()
   const handles = useCssHandles(CSS_HANDLES)
   const dropdownOptions = getDropdownOptions(availableQuantity)
 
   const handleChange = (value: string) => {
-    const validatedValue = validateValue(value, availableQuantity)
-    const displayValue = validateDisplayValue(value, availableQuantity)
+    const newValidatedValue = validateValue(value, availableQuantity)
+    const newDisplayValue = validateDisplayValue(value, availableQuantity)
 
     if (
-      behavior === 'dropdown' &&
-      validatedValue >= Math.min(availableQuantity, MAX_DROPDOWN_VALUE)
+      internalBehavior === 'dropdown' &&
+      newValidatedValue >= Math.min(availableQuantity, MAX_DROPDOWN_VALUE)
     ) {
       setInternalBehavior('input')
     }
 
-    setDisplayValue(displayValue)
-    onChange({ value: validatedValue })
+    setDisplayValue(newDisplayValue)
+    onChange({ value: newValidatedValue })
   }
 
   const handleInputBlur = () => {
-    if (curDisplayValue === '') {
+    if (displayValue === '') {
       setDisplayValue('1')
     }
 
-    const validatedValue = validateValue(curDisplayValue, availableQuantity)
+    const validatedValue = validateValue(displayValue, availableQuantity)
 
     if (validatedValue < Math.min(availableQuantity, MAX_DROPDOWN_VALUE)) {
       setInternalBehavior('dropdown')
@@ -108,61 +117,48 @@ const DropdownProductQuantity: FunctionComponent<DropdownProps> = ({
     onChange({ value: validatedValue })
   }
 
-  if (behavior === 'dropdown') {
+  if (internalBehavior === 'dropdown') {
     return (
-      <Fragment>
-        <div
-          className={`${handles.quantitySelectorDropdownMobileContainer} dn-m`}>
-          <Dropdown
-            id={`quantity-dropdown-mobile-${itemId}`}
-            testId={`quantity-dropdown-mobile-${itemId}`}
-            options={dropdownOptions}
-            size={size}
-            value={selectedQuantity}
-            onChange={(event: any) => handleChange(event.target.value)}
-            placeholder=" "
-          />
-        </div>
-        <div className={`${handles.quantitySelectorDropdownContainer} dn db-m`}>
-          <Dropdown
-            id={`quantity-dropdown-${itemId}`}
-            testId={`quantity-dropdown-${itemId}`}
-            options={dropdownOptions}
-            size={size}
-            value={selectedQuantity}
-            onChange={(event: any) => handleChange(event.target.value)}
-            placeholder=" "
-          />
-        </div>
-      </Fragment>
+      <div
+        className={
+          isMobile
+            ? handles.quantitySelectorDropdownMobileContainer
+            : handles.quantitySelectorDropdownContainer
+        }>
+        <Dropdown
+          id={`${
+            isMobile ? MOBILE_DROPDOWN_ID : DESKTOP_DROPDOWN_ID
+          }-${itemId}`}
+          testId={`${
+            isMobile ? MOBILE_DROPDOWN_ID : DESKTOP_DROPDOWN_ID
+          }-${itemId}`}
+          options={dropdownOptions}
+          size={size}
+          value={selectedQuantity}
+          onChange={event => handleChange(event.target.value)}
+          placeholder=" "
+        />
+      </div>
     )
   }
 
   return (
-    <Fragment>
-      <div className={`${handles.quantitySelectorInputMobileContainer} dn-m`}>
-        <Input
-          id={`quantity-input-mobile-${itemId}`}
-          size={size}
-          value={curDisplayValue}
-          maxLength={MAX_INPUT_LENGTH}
-          onChange={(event: any) => handleChange(event.target.value)}
-          onBlur={handleInputBlur}
-          placeholder=""
-        />
-      </div>
-      <div className={`${handles.quantitySelectorInputContainer} dn db-m`}>
-        <Input
-          id={`quantity-input-${itemId}`}
-          size={size}
-          value={curDisplayValue}
-          maxLength={MAX_INPUT_LENGTH}
-          onChange={(event: any) => handleChange(event.target.value)}
-          onBlur={handleInputBlur}
-          placeholder=""
-        />
-      </div>
-    </Fragment>
+    <div
+      className={
+        isMobile
+          ? handles.quantitySelectorInputMobileContainer
+          : handles.quantitySelectorInputContainer
+      }>
+      <Input
+        id={`${isMobile ? MOBILE_INPUT_ID : DESKTOP_INPUT_ID}-${itemId}`}
+        size={size}
+        value={displayValue}
+        maxLength={MAX_INPUT_LENGTH}
+        onChange={event => handleChange(event.target.value)}
+        onBlur={handleInputBlur}
+        placeholder=""
+      />
+    </div>
   )
 }
 

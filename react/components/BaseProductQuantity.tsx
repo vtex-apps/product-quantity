@@ -65,7 +65,7 @@ const BaseProductQuantity: StorefrontFunctionComponent<BaseProps> = ({
           <FormattedMessage id="store/product-quantity.quantity" />
         </div>
       )}
-      {selectorType === 'stepper' ? (
+      {selectorType === 'stepper' && (
         <StepperProductQuantity
           size={size}
           unitMultiplier={selectedItem.unitMultiplier}
@@ -74,8 +74,8 @@ const BaseProductQuantity: StorefrontFunctionComponent<BaseProps> = ({
           availableQuantity={availableQuantity}
           onChange={onChange}
         />
-      ) : null}
-      {selectorType === 'dropdown' ? (
+      )}
+      {selectorType === 'dropdown' && (
         <DropdownProductQuantity
           itemId={selectedItem.itemId}
           selectedQuantity={selectedQuantity}
@@ -83,7 +83,7 @@ const BaseProductQuantity: StorefrontFunctionComponent<BaseProps> = ({
           onChange={onChange}
           size={size}
         />
-      ) : null}
+      )}
       {showAvailable && (
         <div
           className={`${handles.availableQuantityContainer} mv4 c-muted-2 t-small`}>

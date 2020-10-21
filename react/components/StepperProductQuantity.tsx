@@ -15,6 +15,7 @@ interface StepperProps {
   onChange: (e: OnChangeCallback) => void
   size: BaseProps['size']
 }
+
 const CSS_HANDLES = ['quantitySelectorStepper'] as const
 
 const StepperProductQuantity: FunctionComponent<StepperProps> = ({

@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 ### Added
-- Add support to dropdown quantity selection behavior
+- `selectorType` prop to `product-quantity` and `product-summary-quantity`. Enables users to toggle between a dropdown and a numeric stepper.
 
 ## [1.4.1] - 2020-05-01
 ### Fixed
