@@ -17,8 +17,8 @@ export interface BaseProps {
   selectedQuantity: number
   selectorType?: SelectorType
   size?: NumericSize
-  warningQuantityThreshold: number,
-  showSuffix: boolean,
+  warningQuantityThreshold: number
+  showSuffix: boolean
 }
 
 const CSS_HANDLES = [

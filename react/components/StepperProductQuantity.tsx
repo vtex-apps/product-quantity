@@ -13,7 +13,7 @@ interface StepperProps {
   selectedQuantity: BaseProps['selectedQuantity']
   availableQuantity: number
   onChange: (e: OnChangeCallback) => void
-  size: BaseProps['size'],
+  size: BaseProps['size']
   showSuffix: boolean
 }
 
@@ -36,7 +36,11 @@ const StepperProductQuantity: FunctionComponent<StepperProps> = ({
         size={size}
         minValue={1}
         unitMultiplier={unitMultiplier}
-        suffix={(showSuffix && measurementUnit !== DEFAULT_UNIT) ? measurementUnit : undefined}
+        suffix={
+          showSuffix && measurementUnit !== DEFAULT_UNIT
+            ? measurementUnit
+            : undefined
+        }
         onChange={onChange}
         value={selectedQuantity}
         maxValue={availableQuantity || undefined}
