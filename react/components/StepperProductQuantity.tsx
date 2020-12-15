@@ -13,7 +13,8 @@ interface StepperProps {
   selectedQuantity: BaseProps['selectedQuantity']
   availableQuantity: number
   onChange: (e: OnChangeCallback) => void
-  size: BaseProps['size']
+  size: BaseProps['size'],
+  showSuffix: boolean
 }
 
 const CSS_HANDLES = ['quantitySelectorStepper'] as const
@@ -25,6 +26,7 @@ const StepperProductQuantity: FunctionComponent<StepperProps> = ({
   selectedQuantity,
   availableQuantity,
   onChange,
+  showSuffix,
 }) => {
   const handles = useCssHandles(CSS_HANDLES)
 
@@ -34,7 +36,7 @@ const StepperProductQuantity: FunctionComponent<StepperProps> = ({
         size={size}
         minValue={1}
         unitMultiplier={unitMultiplier}
-        suffix={measurementUnit !== DEFAULT_UNIT ? measurementUnit : undefined}
+        suffix={(showSuffix && measurementUnit !== DEFAULT_UNIT) ? measurementUnit : undefined}
         onChange={onChange}
         value={selectedQuantity}
         maxValue={availableQuantity || undefined}
