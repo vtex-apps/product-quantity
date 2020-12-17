@@ -12,14 +12,14 @@ const ProductQuantity: StorefrontFunctionComponent<BaseProps> = props => {
     showLabel,
     size,
     selectorType,
-    showSuffix,
+    showUnit,
   } = props
   const { selectedItem, selectedQuantity } = useProduct()
   const dispatch = useProductDispatch()
 
   return (
     <BaseProductQuantity
-      showSuffix={showSuffix}
+      showUnit={showUnit}
       size={size}
       dispatch={dispatch}
       showLabel={showLabel}

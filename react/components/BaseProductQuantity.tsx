@@ -18,7 +18,7 @@ export interface BaseProps {
   selectorType?: SelectorType
   size?: NumericSize
   warningQuantityThreshold: number
-  showSuffix: boolean
+  showUnit: boolean
 }
 
 const CSS_HANDLES = [
@@ -39,7 +39,7 @@ const BaseProductQuantity: StorefrontFunctionComponent<BaseProps> = ({
   selectedQuantity,
   warningQuantityThreshold = 0,
   selectorType = 'stepper',
-  showSuffix = true,
+  showUnit = true,
 }) => {
   const handles = useCssHandles(CSS_HANDLES)
   const onChange = useCallback(
@@ -69,7 +69,7 @@ const BaseProductQuantity: StorefrontFunctionComponent<BaseProps> = ({
       )}
       {selectorType === 'stepper' && (
         <StepperProductQuantity
-          showSuffix={showSuffix}
+          showUnit={showUnit}
           size={size}
           unitMultiplier={selectedItem.unitMultiplier}
           measurementUnit={selectedItem.measurementUnit}

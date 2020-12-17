@@ -15,7 +15,7 @@ const ProductSummaryQuantity: StorefrontFunctionComponent<BaseProps> = props => 
     showLabel,
     size,
     selectorType,
-    showSuffix,
+    showUnit,
   } = props
   const handles = useCssHandles(CSS_HANDLES)
   const { selectedItem, selectedQuantity } = useProduct()
@@ -33,7 +33,7 @@ const ProductSummaryQuantity: StorefrontFunctionComponent<BaseProps> = props => 
       onClick={handleClick}
       className={`${handles.summaryContainer} center mw-100`}>
       <BaseProductQuantity
-        showSuffix={showSuffix}
+        showUnit={showUnit}
         size={size}
         dispatch={dispatch}
         showLabel={showLabel}
