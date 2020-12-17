@@ -9,9 +9,9 @@
           "type": "number",
           "default": 0
         },
-        "showSuffix": {
-          "title": "admin/editor.product-quantity.showSuffix.title",
-          "description": "admin/editor.product-quantity.showSuffix.title",
+        "showUnit": {
+          "title": "admin/editor.product-quantity.showUnit.title",
+          "description": "admin/editor.product-quantity.showUnit.title",
           "type": "boolean",
           "default": true
         }
@@ -26,9 +26,9 @@
           "type": "number",
           "default": 0
         },
-        "showSuffix": {
-          "title": "admin/editor.product-quantity.showSuffix.title",
-          "description": "admin/editor.product-quantity.showSuffix.description",
+        "showUnit": {
+          "title": "admin/editor.product-quantity.showUnit.title",
+          "description": "admin/editor.product-quantity.showUnit.description",
           "type": "boolean",
           "default": true
         }

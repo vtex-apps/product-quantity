@@ -5,6 +5,6 @@
   "admin/editor.product-quantity.description": "Description of Product Quantity component",
   "admin/editor.product-quantity.warningQuantityThreshold.title": "Title of warningQuantityThreshold property",
   "admin/editor.product-quantity.warningQuantityThreshold.description": "Description of warningQuantityThreshold property",
-  "admin/editor.product-quantity.showSuffix.title": "Title of showSuffix property",
-  "admin/editor.product-quantity.showSuffix.description": "Description of showSuffix property"
+  "admin/editor.product-quantity.showUnit.title": "Title of showUnit property",
+  "admin/editor.product-quantity.showUnit.description": "Description of showUnit property"
 }
