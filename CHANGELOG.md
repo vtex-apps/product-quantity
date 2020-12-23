@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-- Added prop `showUnit` to show or hide suffix on `quantity-selector`
+- Added prop `showUnit` to show or hide unit on `quantity-selector`
 
 ## [1.5.0] - 2020-10-27
 ### Added
