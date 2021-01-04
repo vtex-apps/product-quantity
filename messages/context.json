@@ -4,5 +4,7 @@
   "admin/editor.product-quantity.title": "Title of Product Quantity component",
   "admin/editor.product-quantity.description": "Description of Product Quantity component",
   "admin/editor.product-quantity.warningQuantityThreshold.title": "Title of warningQuantityThreshold property",
-  "admin/editor.product-quantity.warningQuantityThreshold.description": "Description of warningQuantityThreshold property"
+  "admin/editor.product-quantity.warningQuantityThreshold.description": "Description of warningQuantityThreshold property",
+  "admin/editor.product-quantity.showUnit.title": "Title of showUnit property",
+  "admin/editor.product-quantity.showUnit.description": "Description of showUnit property"
 }
