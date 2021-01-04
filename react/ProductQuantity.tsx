@@ -7,19 +7,12 @@ import BaseProductQuantity, {
 } from './components/BaseProductQuantity'
 
 const ProductQuantity: StorefrontFunctionComponent<BaseProps> = props => {
-  const {
-    warningQuantityThreshold,
-    showLabel,
-    size,
-    selectorType,
-    showUnit,
-  } = props
+  const { warningQuantityThreshold, showLabel, size, selectorType } = props
   const { selectedItem, selectedQuantity } = useProduct()
   const dispatch = useProductDispatch()
 
   return (
     <BaseProductQuantity
-      showUnit={showUnit}
       size={size}
       dispatch={dispatch}
       showLabel={showLabel}

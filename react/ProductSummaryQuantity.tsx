@@ -10,13 +10,7 @@ import BaseProductQuantity, {
 const CSS_HANDLES = ['summaryContainer'] as const
 
 const ProductSummaryQuantity: StorefrontFunctionComponent<BaseProps> = props => {
-  const {
-    warningQuantityThreshold,
-    showLabel,
-    size,
-    selectorType,
-    showUnit,
-  } = props
+  const { warningQuantityThreshold, showLabel, size, selectorType } = props
   const handles = useCssHandles(CSS_HANDLES)
   const { selectedItem, selectedQuantity } = useProduct()
   const dispatch = useProductDispatch()
@@ -33,7 +27,6 @@ const ProductSummaryQuantity: StorefrontFunctionComponent<BaseProps> = props => 
       onClick={handleClick}
       className={`${handles.summaryContainer} center mw-100`}>
       <BaseProductQuantity
-        showUnit={showUnit}
         size={size}
         dispatch={dispatch}
         showLabel={showLabel}

@@ -4,7 +4,5 @@
   "admin/editor.product-quantity.title": "Seletor de Quantidade do Produto",
   "admin/editor.product-quantity.description": "Um componente que permite o usuário a selecionar a quantidade de items para adicionar ao carrinho.",
   "admin/editor.product-quantity.warningQuantityThreshold.title": "Limite de aviso de quantidade disponível",
-  "admin/editor.product-quantity.warningQuantityThreshold.description": "Somente mostrar a quantidade de items em estoque se a quantidade de itens disponíveis for menor que o valor passado nessa propriedade.",
-  "admin/editor.product-quantity.showUnit.title": "Mostrar ou ocultar unidade de medida no seletor de quantidade",
-  "admin/editor.product-quantity.showUnit.description": "Unidade de medida no seletor de quantidade"
+  "admin/editor.product-quantity.warningQuantityThreshold.description": "Somente mostrar a quantidade de items em estoque se a quantidade de itens disponíveis for menor que o valor passado nessa propriedade."
 }

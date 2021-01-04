@@ -7,8 +7,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-- Added prop `showUnit` to show or hide unit on `quantity-selector`
-
 ## [1.5.0] - 2020-10-27
 ### Added
 - `selectorType` prop to `product-quantity` and `product-summary-quantity`. Enables users to toggle between a dropdown and a numeric stepper.
