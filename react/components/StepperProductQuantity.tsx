@@ -30,11 +30,13 @@ const StepperProductQuantity: FunctionComponent<StepperProps> = ({
 }) => {
   const handles = useCssHandles(CSS_HANDLES)
 
+  const minValue = unitMultiplier
+
   return (
     <div className={handles.quantitySelectorStepper}>
       <NumericStepper
         size={size}
-        minValue={1}
+        minValue={minValue}
         unitMultiplier={unitMultiplier}
         suffix={
           showUnit && measurementUnit !== DEFAULT_UNIT
