@@ -18,7 +18,8 @@ export interface BaseProps {
   selectorType?: SelectorType
   size?: NumericSize
   warningQuantityThreshold: number
-  showUnit: boolean
+  showUnit: boolean,
+  showBultAsUnit?: boolean
 }
 
 const CSS_HANDLES = [
@@ -40,6 +41,7 @@ const BaseProductQuantity: StorefrontFunctionComponent<BaseProps> = ({
   warningQuantityThreshold = 0,
   selectorType = 'stepper',
   showUnit = true,
+  showBultAsUnit = false
 }) => {
   const handles = useCssHandles(CSS_HANDLES)
   const onChange = useCallback(
@@ -57,7 +59,10 @@ const BaseProductQuantity: StorefrontFunctionComponent<BaseProps> = ({
   }
 
   const showAvailable = availableQuantity <= warningQuantityThreshold
-
+  let unitMultiplier = selectedItem.unitMultiplier
+  if (showBultAsUnit){
+    unitMultiplier = 1
+  }
   return (
     <div
       className={`${handles.quantitySelectorContainer} flex flex-column mb4`}>
@@ -71,7 +76,7 @@ const BaseProductQuantity: StorefrontFunctionComponent<BaseProps> = ({
         <StepperProductQuantity
           showUnit={showUnit}
           size={size}
-          unitMultiplier={selectedItem.unitMultiplier}
+          unitMultiplier={unitMultiplier}
           measurementUnit={selectedItem.measurementUnit}
           selectedQuantity={selectedQuantity}
           availableQuantity={availableQuantity}

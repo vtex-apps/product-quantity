@@ -13,6 +13,7 @@ const ProductQuantity: StorefrontFunctionComponent<BaseProps> = props => {
     size,
     selectorType,
     showUnit,
+    showBultAsUnit,
   } = props
   const { selectedItem, selectedQuantity } = useProduct()
   const dispatch = useProductDispatch()
@@ -27,6 +28,7 @@ const ProductQuantity: StorefrontFunctionComponent<BaseProps> = props => {
       selectedQuantity={selectedQuantity}
       selectorType={selectorType}
       warningQuantityThreshold={warningQuantityThreshold}
+      showBultAsUnit={showBultAsUnit}
     />
   )
 }
