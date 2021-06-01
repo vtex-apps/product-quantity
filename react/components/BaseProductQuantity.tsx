@@ -25,7 +25,7 @@ export interface BaseProps {
 const CSS_HANDLES = [
   'quantitySelectorContainer',
   'quantitySelectorTitle',
-  'availableQuantityContainer',
+  'availableQuantityContainer'
 ] as const
 
 export type OnChangeCallback = {
@@ -59,9 +59,11 @@ const BaseProductQuantity: StorefrontFunctionComponent<BaseProps> = ({
   }
 
   const showAvailable = availableQuantity <= warningQuantityThreshold
-  let unitMultiplier = selectedItem.unitMultiplier
-  if (showBultAsUnit){
+  let unitMultiplier
+  if (showBultAsUnit) {
     unitMultiplier = 1
+  }else{
+    unitMultiplier = selectedItem.unitMultiplier
   }
   return (
     <div
