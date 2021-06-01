@@ -18,14 +18,14 @@ export interface BaseProps {
   selectorType?: SelectorType
   size?: NumericSize
   warningQuantityThreshold: number
-  showUnit: boolean,
+  showUnit: boolean
   showBultAsUnit?: boolean
 }
 
 const CSS_HANDLES = [
   'quantitySelectorContainer',
   'quantitySelectorTitle',
-  'availableQuantityContainer'
+  'availableQuantityContainer',
 ] as const
 
 export type OnChangeCallback = {
@@ -41,7 +41,7 @@ const BaseProductQuantity: StorefrontFunctionComponent<BaseProps> = ({
   warningQuantityThreshold = 0,
   selectorType = 'stepper',
   showUnit = true,
-  showBultAsUnit = false
+  showBultAsUnit = false,
 }) => {
   const handles = useCssHandles(CSS_HANDLES)
   const onChange = useCallback(
@@ -62,7 +62,7 @@ const BaseProductQuantity: StorefrontFunctionComponent<BaseProps> = ({
   let unitMultiplier
   if (showBultAsUnit) {
     unitMultiplier = 1
-  }else{
+  } else {
     unitMultiplier = selectedItem.unitMultiplier
   }
   return (
