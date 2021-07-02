@@ -11,7 +11,6 @@ export type NumericSize = 'small' | 'regular' | 'large'
 export type SelectorType = 'stepper' | 'dropdown'
 export type QuantitySelectorStepType = 'unitMultiplier' | 'singleUnit'
 
-
 export interface BaseProps {
   dispatch: DispatchFunction
   selectedItem?: ProductContext['selectedItem']
@@ -62,7 +61,7 @@ const BaseProductQuantity: StorefrontFunctionComponent<BaseProps> = ({
 
   const showAvailable = availableQuantity <= warningQuantityThreshold
   let unitMultiplier
-  if (quantitySelectorStep == 'singleUnit') {
+  if (quantitySelectorStep === 'singleUnit') {
     unitMultiplier = 1
   } else {
     unitMultiplier = selectedItem.unitMultiplier
