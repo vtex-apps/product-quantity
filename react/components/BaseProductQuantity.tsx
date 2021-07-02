@@ -9,6 +9,8 @@ import StepperProductQuantity from './StepperProductQuantity'
 
 export type NumericSize = 'small' | 'regular' | 'large'
 export type SelectorType = 'stepper' | 'dropdown'
+export type QuantitySelectorStepType = 'unitMultiplier' | 'singleUnit'
+
 
 export interface BaseProps {
   dispatch: DispatchFunction
@@ -19,7 +21,7 @@ export interface BaseProps {
   size?: NumericSize
   warningQuantityThreshold: number
   showUnit: boolean
-  showBultAsUnit?: boolean
+  quantitySelectorStep?: QuantitySelectorStepType
 }
 
 const CSS_HANDLES = [
@@ -41,7 +43,7 @@ const BaseProductQuantity: StorefrontFunctionComponent<BaseProps> = ({
   warningQuantityThreshold = 0,
   selectorType = 'stepper',
   showUnit = true,
-  showBultAsUnit = false,
+  quantitySelectorStep = 'unitMultiplier',
 }) => {
   const handles = useCssHandles(CSS_HANDLES)
   const onChange = useCallback(
@@ -60,7 +62,7 @@ const BaseProductQuantity: StorefrontFunctionComponent<BaseProps> = ({
 
   const showAvailable = availableQuantity <= warningQuantityThreshold
   let unitMultiplier
-  if (showBultAsUnit) {
+  if (quantitySelectorStep == 'singleUnit') {
     unitMultiplier = 1
   } else {
     unitMultiplier = selectedItem.unitMultiplier
