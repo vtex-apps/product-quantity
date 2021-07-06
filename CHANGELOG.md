@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ### Added
-- `showBultAsUnit` prop to `product-quantity` and `product-summary-quantity`. Enables users to see the quantity of products affected with the unitMultiplier like units.
+- `quantitySelectorStep` prop to `product-quantity` and `product-summary-quantity`. Enables users to see the quantity of products affected with the unitMultiplier like units.
 
 ## [1.6.0] - 2021-01-13
 ### Added
