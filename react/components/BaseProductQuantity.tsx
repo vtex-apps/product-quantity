@@ -62,8 +62,8 @@ const BaseProductQuantity: StorefrontFunctionComponent<BaseProps> = ({
   const showAvailable = availableQuantity <= warningQuantityThreshold
   const unitMultiplier =
     quantitySelectorStep === 'singleUnit' ? 1 : selectedItem.unitMultiplier
-  
-    return (
+
+  return (
     <div
       className={`${handles.quantitySelectorContainer} flex flex-column mb4`}>
       {showLabel && (
