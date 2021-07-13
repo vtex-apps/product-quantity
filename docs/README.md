@@ -66,6 +66,7 @@ You are now able to use all blocks that are exported by the Product Quantity app
 | `size` | `enum`| Preset size values for `font-size` and `padding`. You can check these value measures by accessing the [VTEX Styleguide](https://styleguide.vtex.com/#/Components/Forms/NumericStepper). Possible values are: `small`, `regular`, and `large`. | `small` |
 | `showLabel` | `boolean` | Whether a label should be displayed (`true`) or not (`false`). | `true` |
 | `selectorType` | `enum` | Defines how the quantity selector should initially behave. Possible values are: `stepper` (displays an input field where the quantity can be directly defined, in addition to side buttons to increase or decrease the value) and `dropdown` (shows a list of predefined-quantity options. In case the last quantity option is selected by users, the component is replaced with an input). | `stepper` |
+| `quantitySelectorStep` | `enum` | Defines how the number of products that have unitMultiplier will works. Possible values are: `singleUnit` (the quantity will be not affected with the unitMultiplier) and `unitMultiplier` (the quantity will be affected with the unitMultiplier). | `unitMultiplier` |
 
 ## Customization
 

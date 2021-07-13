@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+- `quantitySelectorStep` prop to `product-quantity` and `product-summary-quantity`. Enables users to control how each increment or decrement in quantity caused by these components is actually processed.
+
 ## [1.6.0] - 2021-01-13
 ### Added
 - Added prop `showUnit` to show or hide unit on `quantity-selector`

@@ -16,6 +16,7 @@ const ProductSummaryQuantity: StorefrontFunctionComponent<BaseProps> = props => 
     size,
     selectorType,
     showUnit,
+    quantitySelectorStep,
   } = props
   const handles = useCssHandles(CSS_HANDLES)
   const { selectedItem, selectedQuantity } = useProduct()
@@ -41,6 +42,7 @@ const ProductSummaryQuantity: StorefrontFunctionComponent<BaseProps> = props => 
         selectedQuantity={selectedQuantity}
         selectorType={selectorType}
         warningQuantityThreshold={warningQuantityThreshold}
+        quantitySelectorStep={quantitySelectorStep}
       />
     </div>
   )
