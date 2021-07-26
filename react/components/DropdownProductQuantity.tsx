@@ -83,7 +83,6 @@ const DropdownProductQuantity: FunctionComponent<DropdownProps> = ({
     'dropdown'
   )
   const [displayValue, setDisplayValue] = useState(`${selectedQuantity}`)
-
   const { isMobile } = useDevice()
   const handles = useCssHandles(CSS_HANDLES)
   const dropdownOptions = getDropdownOptions(availableQuantity)
