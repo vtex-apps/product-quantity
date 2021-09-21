@@ -53,7 +53,8 @@ const BaseProductQuantity: StorefrontFunctionComponent<BaseProps> = ({
   )
 
   const availableQuantity =
-    selectedItem?.sellers?.[0]?.commertialOffer?.AvailableQuantity ?? 0
+    selectedItem?.sellers?.find(({ sellerDefault }) => sellerDefault === true)
+      ?.commertialOffer?.AvailableQuantity ?? 0
 
   if (availableQuantity < 1 || !selectedItem) {
     return null

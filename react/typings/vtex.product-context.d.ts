@@ -17,6 +17,7 @@ declare module 'vtex.product-context' {
       commertialOffer: {
         AvailableQuantity: number
       }
+      sellerDefault: boolean
     }>
   }
 }

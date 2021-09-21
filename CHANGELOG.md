@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+- Now considers default seller instead of first seller in `BaseProductQuantity`
+
 ## [1.7.0] - 2021-07-26
 
 ### Added
