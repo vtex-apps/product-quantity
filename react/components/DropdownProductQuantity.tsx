@@ -93,7 +93,7 @@ const DropdownProductQuantity: FunctionComponent<DropdownProps> = ({
 
     if (
       internalBehavior === 'dropdown' &&
-      newValidatedValue >= Math.min(availableQuantity, MAX_DROPDOWN_VALUE)
+      newValidatedValue >= Math.min(availableQuantity + 1, MAX_DROPDOWN_VALUE)
     ) {
       setInternalBehavior('input')
     }
