@@ -1,0 +1,10 @@
+{
+  "store/product-quantity.quantity": "數量",
+  "store/product-quantity.quantity-available": "{availableQuantity, plural, one {# 件可銷售} other {# 件可銷售}}",
+  "admin/editor.product-quantity.title": "產品數量組件",
+  "admin/editor.product-quantity.description": "允許用戶選擇要添加到購物車的商品數量的組件",
+  "admin/editor.product-quantity.warningQuantityThreshold.title": "可銷售數量警告閥值",
+  "admin/editor.product-quantity.warningQuantityThreshold.description": "僅當可銷售商品數量小於或等於此屬性傳遞的值時，才顯示庫存中剩餘商品的數量",
+  "admin/editor.product-quantity.showUnit.title": "數量選擇器中的度量單位",
+  "admin/editor.product-quantity.showUnit.description": "在數量選擇器中顯示或隱藏度量單位"
+}
