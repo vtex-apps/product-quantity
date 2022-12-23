@@ -7,9 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+- Indonesian and Thai translations.
+
+### Fixed
+- English and Portuguese translations.
+
 ## [1.8.1] - 2022-06-22
 ### Fixed
 - Product quantity changing to input text when selecting the maximum available quantity 
+
 ## [1.8.0] - 2022-03-14
 
 ### Added
