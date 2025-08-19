@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 - Update GitHub actions/cache to v4
+- Web Accessibility: Change quantity div to label element and add htmlFor that links to quantity input
 
 ## [1.9.0] - 2022-12-23
 
