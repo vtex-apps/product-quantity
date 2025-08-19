@@ -68,10 +68,12 @@ const BaseProductQuantity: StorefrontFunctionComponent<BaseProps> = ({
     <div
       className={`${handles.quantitySelectorContainer} flex flex-column mb4`}>
       {showLabel && (
-        <div
-          className={`${handles.quantitySelectorTitle} mb3 c-muted-2 t-body`}>
+        <label
+          className={`${handles.quantitySelectorTitle} mb3 c-muted-2 t-body`}
+          htmlFor="vtex-product-quantity-input"
+        >
           <FormattedMessage id="store/product-quantity.quantity" />
-        </div>
+        </label>
       )}
       {selectorType === 'stepper' && (
         <StepperProductQuantity
