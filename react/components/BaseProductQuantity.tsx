@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { useCssHandles } from 'vtex.css-handles'
+import { useRuntime } from 'vtex.render-runtime'
 import { DispatchFunction } from 'vtex.product-context/ProductDispatchContext'
 import { ProductContext } from 'vtex.product-context'
 
@@ -44,7 +45,12 @@ const BaseProductQuantity: StorefrontFunctionComponent<BaseProps> = ({
   showUnit = true,
   quantitySelectorStep = 'unitMultiplier',
 }) => {
+  const { getSettings } = useRuntime()
+  const settings = getSettings('vtex.store')
+  const useSemanticHtml = settings?.advancedSettings?.a11ySemanticHtmlMigration
+  
   const handles = useCssHandles(CSS_HANDLES)
+
   const onChange = useCallback(
     (e: OnChangeCallback) => {
       dispatch({ type: 'SET_QUANTITY', args: { quantity: e.value } })
@@ -64,16 +70,19 @@ const BaseProductQuantity: StorefrontFunctionComponent<BaseProps> = ({
   const unitMultiplier =
     quantitySelectorStep === 'singleUnit' ? 1 : selectedItem.unitMultiplier
 
+  const LabelComponent = useSemanticHtml ? 'label' : 'div'
+  const labelProps = useSemanticHtml ? { htmlFor: 'vtex-product-quantity-input' } : {}
+
   return (
     <div
       className={`${handles.quantitySelectorContainer} flex flex-column mb4`}>
       {showLabel && (
-        <label
+        <LabelComponent
           className={`${handles.quantitySelectorTitle} mb3 c-muted-2 t-body`}
-          htmlFor="vtex-product-quantity-input"
+          {...labelProps}
         >
           <FormattedMessage id="store/product-quantity.quantity" />
-        </label>
+        </LabelComponent>
       )}
       {selectorType === 'stepper' && (
         <StepperProductQuantity
@@ -84,6 +93,7 @@ const BaseProductQuantity: StorefrontFunctionComponent<BaseProps> = ({
           selectedQuantity={selectedQuantity}
           availableQuantity={availableQuantity}
           onChange={onChange}
+          useSemanticHtml={useSemanticHtml}
         />
       )}
       {selectorType === 'dropdown' && (
