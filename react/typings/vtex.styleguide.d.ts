@@ -15,6 +15,7 @@ declare module 'vtex.styleguide' {
     unitMultiplier: number
     suffix?: string
     onChange: (e: any) => void
+    useSemanticHtml?: any
   }
 
   interface DropdownProps {
