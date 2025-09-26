@@ -15,6 +15,7 @@ interface StepperProps {
   onChange: (e: OnChangeCallback) => void
   size: BaseProps['size']
   showUnit: boolean
+  useSemanticHtml?: boolean
 }
 
 const CSS_HANDLES = ['quantitySelectorStepper'] as const
@@ -27,6 +28,7 @@ const StepperProductQuantity: FunctionComponent<StepperProps> = ({
   availableQuantity,
   onChange,
   showUnit,
+  useSemanticHtml = false,
 }) => {
   const handles = useCssHandles(CSS_HANDLES)
 
@@ -44,6 +46,7 @@ const StepperProductQuantity: FunctionComponent<StepperProps> = ({
         onChange={onChange}
         value={selectedQuantity}
         maxValue={availableQuantity || undefined}
+        useSemanticHtml={useSemanticHtml}
       />
     </div>
   )
