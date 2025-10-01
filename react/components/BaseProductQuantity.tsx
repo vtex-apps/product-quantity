@@ -82,8 +82,7 @@ const BaseProductQuantity: StorefrontFunctionComponent<BaseProps> = ({
       {showLabel && (
         <LabelComponent
           className={`${handles.quantitySelectorTitle} mb3 c-muted-2 t-body`}
-          {...labelProps}
-        >
+          {...labelProps}>
           <FormattedMessage id="store/product-quantity.quantity" />
         </LabelComponent>
       )}
