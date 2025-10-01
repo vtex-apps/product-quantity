@@ -70,7 +70,11 @@ const BaseProductQuantity: StorefrontFunctionComponent<BaseProps> = ({
     quantitySelectorStep === 'singleUnit' ? 1 : selectedItem.unitMultiplier
 
   const LabelComponent = useSemanticHtml ? 'label' : 'div'
-  const labelProps = useSemanticHtml ? { htmlFor: 'vtex-product-quantity-input' } : {}
+  const labelProps = useSemanticHtml
+    ? {
+        htmlFor: 'vtex-product-quantity-input',
+      }
+    : {}
 
   return (
     <div
