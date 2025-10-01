@@ -48,7 +48,6 @@ const BaseProductQuantity: StorefrontFunctionComponent<BaseProps> = ({
   const { getSettings } = useRuntime()
   const settings = getSettings('vtex.store')
   const useSemanticHtml = settings?.advancedSettings?.a11ySemanticHtmlMigration
-  
   const handles = useCssHandles(CSS_HANDLES)
 
   const onChange = useCallback(
