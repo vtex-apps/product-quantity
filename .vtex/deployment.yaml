@@ -1,0 +1,16 @@
+- name: product-quantity
+  referenceId: 5CLVOHKV
+  pipelines:
+    - name: techdocs-v1
+      parameters:
+        entityReference: default/component/product-quantity
+        indexFile: README.md
+      when:
+        - event: push
+          source: branch
+          regex: master
+          path:
+            - "docs/**"
+            - ".vtex/deployment.yaml"
+            - ".vtex/deployment.json"
+            - "README.md"
