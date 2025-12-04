@@ -1,0 +1,10 @@
+{
+  "store/product-quantity.quantity": "Quantité",
+  "store/product-quantity.quantity-available": "{availableQuantity, plural, one {# disponible} other {# disponibles}}",
+  "admin/editor.product-quantity.title": "Composant de la quantité de produit",
+  "admin/editor.product-quantity.description": "Un composant qui permet aux utilisateurs de sélectionner le nombre d’articles à ajouter au panier",
+  "admin/editor.product-quantity.warningQuantityThreshold.title": "Seuil d'alerte pour la quantité disponible",
+  "admin/editor.product-quantity.warningQuantityThreshold.description": "N'afficher la quantité d'articles restants en stock que si la quantité d'articles disponibles est inférieure ou égale à la valeur indiquée dans cette propriété",
+  "admin/editor.product-quantity.showUnit.title": "Unité de mesure dans le sélecteur de quantité",
+  "admin/editor.product-quantity.showUnit.description": "Afficher ou masquer l'unité de mesure dans le sélecteur de quantité"
+}
